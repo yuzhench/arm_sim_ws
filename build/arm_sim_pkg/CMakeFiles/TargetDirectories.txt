@@ -1,0 +1,9 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/uninstall.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/arm_sim_pkg_uninstall.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/test.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/edit_cache.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/rebuild_cache.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/list_install_components.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/install.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/install/local.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/CMakeFiles/install/strip.dir

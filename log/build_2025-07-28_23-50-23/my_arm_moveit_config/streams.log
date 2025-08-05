@@ -1,0 +1,69 @@
+[0.009s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config': /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/my_arm_moveit_config -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config
+[0.096s] -- The C compiler identification is GNU 11.4.0
+[0.163s] -- The CXX compiler identification is GNU 11.4.0
+[0.171s] -- Detecting C compiler ABI info
+[0.246s] -- Detecting C compiler ABI info - done
+[0.251s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.252s] -- Detecting C compile features
+[0.252s] -- Detecting C compile features - done
+[0.255s] -- Detecting CXX compiler ABI info
+[0.338s] -- Detecting CXX compiler ABI info - done
+[0.349s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.349s] -- Detecting CXX compile features
+[0.350s] -- Detecting CXX compile features - done
+[0.356s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.481s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.567s] -- Found moveit_ros_move_group: 2.5.9 (/opt/ros/humble/share/moveit_ros_move_group/cmake)
+[0.765s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[0.807s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.811s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.819s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.831s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.844s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.883s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.886s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.980s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.008s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.044s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.053s] -- Found Threads: TRUE  
+[1.169s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.170s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.170s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.228s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[1.256s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[1.263s] -- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.284s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[1.373s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.539s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.549s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.552s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[1.561s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[1.577s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.612s] Error parsing '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/my_arm_moveit_config/package.xml':
+[1.645s] Traceback (most recent call last):
+[1.645s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 150, in <module>
+[1.645s]     main()
+[1.645s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 53, in main
+[1.645s]     raise e
+[1.645s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 49, in main
+[1.645s]     package = parse_package_string(
+[1.645s]   File "/usr/lib/python3/dist-packages/catkin_pkg/package.py", line 786, in parse_package_string
+[1.646s]     raise InvalidPackage('Error(s):%s' % (''.join(['\n- %s' % e for e in errors])), filename)
+[1.646s] catkin_pkg.package.InvalidPackage: Error(s) in package '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/my_arm_moveit_config/package.xml':
+[1.646s] Error(s):
+[1.646s] - The generic dependency on 'moveit_ros_planning_interface' is redundant with: build_depend, build_export_depend, exec_depend
+[1.660s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[1.660s]   execute_process(/usr/bin/python3
+[1.661s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[1.661s]   /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/my_arm_moveit_config/package.xml
+[1.661s]   /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/ament_cmake_core/package.cmake)
+[1.661s]   returned error code 1
+[1.661s] Call Stack (most recent call first):
+[1.661s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[1.661s]   /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[1.661s]   CMakeLists.txt:24 (ament_lint_auto_find_test_dependencies)
+[1.661s] 
+[1.661s] [0m
+[1.661s] -- Configuring incomplete, errors occurred!
+[1.662s] See also "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/CMakeOutput.log".
+[1.679s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config' returned '1': /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/my_arm_moveit_config -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config
