@@ -1,1 +1,0 @@
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/ament_cmake_core/my_arm_moveit_configConfig-version.cmake

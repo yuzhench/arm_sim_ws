@@ -1,9 +1,0 @@
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/uninstall.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/my_arm_moveit_config_uninstall.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/test.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/edit_cache.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/rebuild_cache.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/list_install_components.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/install.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/install/local.dir
-/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config/CMakeFiles/install/strip.dir

@@ -1,9 +1,0 @@
-[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:352:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
-  352 | }
-      |  [01;31m[K^[m[K
-[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:14:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
-   14 | [01;36m[K{[m[K
-      | [01;36m[K^[m[K
-gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
   // target.pose.orientation.w = 1.0;   // 简单单位四元数
   // mgi.setPoseTarget(target);
 
-  mgi.setNamedTarget("farest_pose");  // 目标位姿名称（见 SRDF）
+  mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;
   auto ret = mgi.plan(plan);
@@ -60,6 +60,11 @@ int main(int argc, char** argv) {
       }
       RCLCPP_INFO(node->get_logger(), "%s", oss.str().c_str());
     }
+
+
+    RCLCPP_INFO(node->get_logger(), "Planning successful, executing trajectory...");
+    mgi.execute(plan); 
+
   } else {
     RCLCPP_ERROR(node->get_logger(), "Planning failed.");
   }

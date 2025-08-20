@@ -28,5 +28,6 @@
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/config/joint_limits.yaml
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/config/kinematics.yaml
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/config/moveit.rviz
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/config/moveit_controllers.yaml
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/config/pilz_cartesian_limits.yaml
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim/share/movit_robot_arm_sim/.setup_assistant
