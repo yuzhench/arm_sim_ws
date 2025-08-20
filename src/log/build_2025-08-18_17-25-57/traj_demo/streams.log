@@ -1,0 +1,85 @@
+[0.010s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo
+[0.054s] -- The C compiler identification is GNU 11.4.0
+[0.093s] -- The CXX compiler identification is GNU 11.4.0
+[0.099s] -- Detecting C compiler ABI info
+[0.156s] -- Detecting C compiler ABI info - done
+[0.160s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.160s] -- Detecting C compile features
+[0.161s] -- Detecting C compile features - done
+[0.162s] -- Detecting CXX compiler ABI info
+[0.225s] -- Detecting CXX compiler ABI info - done
+[0.229s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.229s] -- Detecting CXX compile features
+[0.230s] -- Detecting CXX compile features - done
+[0.231s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.332s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.375s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.421s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.474s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.477s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.483s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.490s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.500s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.527s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.528s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.618s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.652s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.689s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.695s] -- Looking for pthread.h
+[0.761s] -- Looking for pthread.h - found
+[0.761s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.826s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.827s] -- Found Threads: TRUE  
+[0.859s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.867s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[0.884s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[0.985s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[1.015s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[1.023s] -- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.038s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[1.124s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.149s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.149s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.235s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.255s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[1.269s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[1.287s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.337s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.337s] -- Configured cppcheck include dirs: 
+[1.337s] -- Configured cppcheck exclude dirs and/or files: 
+[1.337s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.337s] -- Added test 'lint_cmake' to check CMake code style
+[1.337s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.338s] -- Added test 'uncrustify' to check C / C++ code style
+[1.338s] -- Configured uncrustify additional arguments: 
+[1.338s] -- Added test 'xmllint' to check XML markup files
+[1.339s] -- Configuring done
+[1.365s] -- Generating done
+[1.369s] -- Build files have been written to: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo
+[1.385s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo' returned '0': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo
+[1.387s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo -- -j16 -l16
+[1.432s] [ 50%] [32mBuilding CXX object CMakeFiles/plan_once.dir/src/plan_once.cpp.o[0m
+[6.622s] [100%] [32m[1mLinking CXX executable plan_once[0m
+[6.876s] [100%] Built target plan_once
+[6.886s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo' returned '0': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo -- -j16 -l16
+[6.887s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo
+[6.891s] -- Install configuration: ""
+[6.892s] -- Execute custom install script
+[6.892s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/lib/traj_demo/plan_once
+[6.899s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/launch/plan_once.launch.py
+[6.905s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/ament_index/resource_index/package_run_dependencies/traj_demo
+[6.912s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/ament_index/resource_index/parent_prefix_path/traj_demo
+[6.919s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/environment/ament_prefix_path.sh
+[6.925s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/environment/ament_prefix_path.dsv
+[6.935s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/environment/path.sh
+[6.941s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/environment/path.dsv
+[6.948s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/local_setup.bash
+[6.954s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/local_setup.sh
+[6.962s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/local_setup.zsh
+[6.968s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/local_setup.dsv
+[6.974s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/package.dsv
+[6.980s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/ament_index/resource_index/packages/traj_demo
+[6.987s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/cmake/traj_demoConfig.cmake
+[6.992s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/cmake/traj_demoConfig-version.cmake
+[6.999s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/traj_demo/share/traj_demo/package.xml
+[7.008s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo' returned '0': AMENT_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/install/arm_sim_pkg/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo

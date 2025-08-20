@@ -1,0 +1,8 @@
+# Default initial positions for five_joint_arm's ros2_control fake system
+
+initial_positions:
+  joint_base: 0
+  joint_base_big_arm: 0
+  joint_big_arm_small_arm: 0
+  joint_small_arm_wrist: 0
+  joint_wrist_hand: 0

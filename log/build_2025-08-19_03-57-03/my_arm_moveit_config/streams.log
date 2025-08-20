@@ -1,0 +1,21 @@
+[0.013s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config -- -j16 -l16
+[0.050s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config -- -j16 -l16
+[0.059s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config
+[0.065s] -- Install configuration: ""
+[0.065s] -- Execute custom install script
+[0.065s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/package_run_dependencies/my_arm_moveit_config
+[0.065s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/parent_prefix_path/my_arm_moveit_config
+[0.065s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/ament_prefix_path.sh
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/ament_prefix_path.dsv
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/path.sh
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/path.dsv
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.bash
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.sh
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.zsh
+[0.066s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.dsv
+[0.066s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/package.dsv
+[0.074s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/packages/my_arm_moveit_config
+[0.074s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/cmake/my_arm_moveit_configConfig.cmake
+[0.074s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/cmake/my_arm_moveit_configConfig-version.cmake
+[0.075s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/package.xml
+[0.076s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/my_arm_moveit_config

@@ -7,13 +7,31 @@
   <maintainer email="yuzhench@umich.edu">yuzhench</maintainer>
   <license>TODO: License declaration</license>
 
+   <!-- 核心 ros2_control 框架 -->
+  <depend>ros2_control</depend>
+  <!-- 管理器节点 -->
+  <depend>controller_manager</depend>
+  <!-- 插件与接口 -->
+  <depend>hardware_interface</depend>
+  <depend>ros2_controllers</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>joint_trajectory_controller</depend>
+  <!-- 可视化 -->
+  <depend>rviz2</depend>
+  <!-- Python dependencies -->
+  <depend>rclpy</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>xacro</depend>
+
+
+
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
-  <exec_depend>xacro</exec_depend>
-
+ 
 
   <export>
     <build_type>ament_cmake</build_type>

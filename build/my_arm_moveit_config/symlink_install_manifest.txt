@@ -1,0 +1,15 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/package_run_dependencies/my_arm_moveit_config
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/parent_prefix_path/my_arm_moveit_config
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/ament_prefix_path.sh
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/ament_prefix_path.dsv
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/path.sh
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/environment/path.dsv
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.bash
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.sh
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.zsh
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/local_setup.dsv
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/package.dsv
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/ament_index/resource_index/packages/my_arm_moveit_config
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/cmake/my_arm_moveit_configConfig.cmake
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/cmake/my_arm_moveit_configConfig-version.cmake
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/my_arm_moveit_config/share/my_arm_moveit_config/package.xml

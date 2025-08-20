@@ -1,0 +1,21 @@
+[0.015s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16
+[0.055s] [35m[1mConsolidate compiler generated dependencies of target arm_hw[0m
+[0.069s] [ 33%] [32mBuilding CXX object CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o[0m
+[1.550s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[1.550s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:304:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_feedback_ok_[m[K’ was not declared in this scope
+[1.550s]   304 |   if (![01;31m[Kfirst_feedback_ok_[m[K) return OK;
+[1.550s]       |        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[1.550s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:304:35:[m[K [01;31m[Kerror: [m[K‘[01m[KOK[m[K’ was not declared in this scope; did you mean ‘[01m[Khardware_interface::return_type::OK[m[K’?
+[1.551s]   304 |   if (!first_feedback_ok_) return [01;31m[KOK[m[K;
+[1.551s]       |                                   [01;31m[K^~[m[K
+[1.551s]       |                                   [32m[Khardware_interface::return_type::OK[m[K
+[1.551s] In file included from [01m[K/opt/ros/humble/include/hardware_interface/system_interface.hpp:24[m[K,
+[1.551s]                  from [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/include/arm_sim_pkg/arm_hw.hpp:8[m[K,
+[1.551s]                  from [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:2[m[K:
+[1.551s] [01m[K/opt/ros/humble/include/hardware_interface/types/hardware_interface_return_values.hpp:24:3:[m[K [01;36m[Knote: [m[K‘[01m[Khardware_interface::return_type::OK[m[K’ declared here
+[1.551s]    24 |   [01;36m[KOK[m[K = 0,
+[1.551s]       |   [01;36m[K^~[m[K
+[1.943s] gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+[1.943s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+[1.944s] gmake: *** [Makefile:146: all] Error 2
+[1.946s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16

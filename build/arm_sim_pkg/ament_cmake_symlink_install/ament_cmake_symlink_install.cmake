@@ -310,14 +310,23 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "DESTINATION" "share/arm_sim_pkg")
-ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" DIRECTORY "launch" "DESTINATION" "share/arm_sim_pkg")
+# install(PROGRAMS "src/simple_joint_control.py" "DESTINATION" "lib/arm_sim_pkg")
+ament_cmake_symlink_install_programs("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" PROGRAMS "src/simple_joint_control.py" "DESTINATION" "lib/arm_sim_pkg")
 
-# install(DIRECTORY "urdf" "DESTINATION" "share/arm_sim_pkg")
-ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" DIRECTORY "urdf" "DESTINATION" "share/arm_sim_pkg")
+# install(FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg/")
+ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg/")
+
+# install(DIRECTORY "urdf" "config" "launch" "DESTINATION" "share/arm_sim_pkg")
+ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" DIRECTORY "urdf" "config" "launch" "DESTINATION" "share/arm_sim_pkg")
 
 # install(DIRECTORY "meshes" "DESTINATION" "share/arm_sim_pkg")
 ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" DIRECTORY "meshes" "DESTINATION" "share/arm_sim_pkg")
+
+# install("TARGETS" "arm_hw" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")
+include("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install(FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg")
+ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg")
 
 # install(FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
@@ -354,6 +363,9 @@ ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/ar
 
 # install(FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/packages/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/packages")
 ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/packages/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/packages")
+
+# install(FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
+ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/hardware_interface__pluginlib__plugin")
 
 # install(FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_core/arm_sim_pkgConfig.cmake" "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_core/arm_sim_pkgConfig-version.cmake" "DESTINATION" "share/arm_sim_pkg/cmake")
 ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_core/arm_sim_pkgConfig.cmake" "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_core/arm_sim_pkgConfig-version.cmake" "DESTINATION" "share/arm_sim_pkg/cmake")

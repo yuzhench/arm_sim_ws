@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/example_7/hardware/include/ros2_control_demo_example_7/r6bot_hardware.hpp

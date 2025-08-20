@@ -1,0 +1,14 @@
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:472:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kready_[m[K’ was not declared in this scope; did you mean ‘[01m[Kread[m[K’?
+  472 |   if (![01;31m[Kready_[m[K) {
+      |        [01;31m[K^~~~~~[m[K
+      |        [32m[Kread[m[K
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:477:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_shot_done_[m[K’ was not declared in this scope
+  477 |   if ([01;31m[Kfirst_shot_done_[m[K) {
+      |       [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:502:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_shot_done_[m[K’ was not declared in this scope
+  502 |     [01;31m[Kfirst_shot_done_[m[K = true;
+      |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

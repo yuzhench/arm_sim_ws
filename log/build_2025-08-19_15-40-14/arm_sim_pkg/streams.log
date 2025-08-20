@@ -1,0 +1,39 @@
+[0.017s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16
+[0.057s] [35m[1mConsolidate compiler generated dependencies of target arm_hw[0m
+[0.071s] [ 33%] [32mBuilding CXX object CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o[0m
+[2.372s] [ 66%] [32m[1mLinking CXX shared library libarm_hw.so[0m
+[2.488s] [100%] Built target arm_hw
+[2.499s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16
+[2.501s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg
+[2.507s] -- Install configuration: ""
+[2.508s] -- Execute custom install script
+[2.508s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/lib/arm_sim_pkg/simple_joint_control.py
+[2.508s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg//pluginlib.xml
+[2.508s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/urdf/simple_arm.xacro
+[2.508s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/config/controllers.yaml
+[2.508s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/launch/display.launch.py
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/BASE_LINKE_CP_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_1_CP_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_2_BIG_ARM_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_3_SMALL_ARM_CP_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_4_WRIST_CP_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_5_HAND_CP_STL.stl
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/lib/libarm_hw.so
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/pluginlib.xml
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg
+[2.509s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/parent_prefix_path/arm_sim_pkg
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/environment/ament_prefix_path.sh
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/environment/ament_prefix_path.dsv
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/environment/path.sh
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/environment/path.dsv
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/local_setup.bash
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/local_setup.sh
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/local_setup.zsh
+[2.510s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/local_setup.dsv
+[2.510s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/package.dsv
+[2.519s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/packages/arm_sim_pkg
+[2.519s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/arm_sim_pkg
+[2.519s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/cmake/arm_sim_pkgConfig.cmake
+[2.519s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/cmake/arm_sim_pkgConfig-version.cmake
+[2.519s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/package.xml
+[2.522s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg

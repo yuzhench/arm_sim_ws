@@ -1,0 +1,7 @@
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:303:16:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kok[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  303 |     const bool [01;35m[Kok[m[K = ctrl_->send_combined_command(id, acc, vel, pos, /*timeout_ms*/ 10000u);
+      |                [01;35m[K^~[m[K
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:293:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kall_ok[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  293 |   bool [01;35m[Kall_ok[m[K = true;
+      |        [01;35m[K^~~~~~[m[K

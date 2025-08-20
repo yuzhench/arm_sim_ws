@@ -197,6 +197,67 @@ arm_sim_pkg_uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_sim_pkg_uninstall.dir/build.make CMakeFiles/arm_sim_pkg_uninstall.dir/build
 .PHONY : arm_sim_pkg_uninstall/fast
 
+#=============================================================================
+# Target rules for targets named arm_hw
+
+# Build rule for target.
+arm_hw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 arm_hw
+.PHONY : arm_hw
+
+# fast build rule for target.
+arm_hw/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/build
+.PHONY : arm_hw/fast
+
+src/arm_hw.o: src/arm_hw.cpp.o
+.PHONY : src/arm_hw.o
+
+# target to build an object file
+src/arm_hw.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o
+.PHONY : src/arm_hw.cpp.o
+
+src/arm_hw.i: src/arm_hw.cpp.i
+.PHONY : src/arm_hw.i
+
+# target to preprocess a source file
+src/arm_hw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/arm_hw.cpp.i
+.PHONY : src/arm_hw.cpp.i
+
+src/arm_hw.s: src/arm_hw.cpp.s
+.PHONY : src/arm_hw.s
+
+# target to generate assembly for a file
+src/arm_hw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/arm_hw.cpp.s
+.PHONY : src/arm_hw.cpp.s
+
+src/motor_controller.o: src/motor_controller.cpp.o
+.PHONY : src/motor_controller.o
+
+# target to build an object file
+src/motor_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/motor_controller.cpp.o
+.PHONY : src/motor_controller.cpp.o
+
+src/motor_controller.i: src/motor_controller.cpp.i
+.PHONY : src/motor_controller.i
+
+# target to preprocess a source file
+src/motor_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/motor_controller.cpp.i
+.PHONY : src/motor_controller.cpp.i
+
+src/motor_controller.s: src/motor_controller.cpp.s
+.PHONY : src/motor_controller.s
+
+# target to generate assembly for a file
+src/motor_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_hw.dir/build.make CMakeFiles/arm_hw.dir/src/motor_controller.cpp.s
+.PHONY : src/motor_controller.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +273,13 @@ help:
 	@echo "... test"
 	@echo "... arm_sim_pkg_uninstall"
 	@echo "... uninstall"
+	@echo "... arm_hw"
+	@echo "... src/arm_hw.o"
+	@echo "... src/arm_hw.i"
+	@echo "... src/arm_hw.s"
+	@echo "... src/motor_controller.o"
+	@echo "... src/motor_controller.i"
+	@echo "... src/motor_controller.s"
 .PHONY : help
 
 

@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/movit_robot_arm_sim/ament_cmake_core/movit_robot_arm_simConfig-version.cmake

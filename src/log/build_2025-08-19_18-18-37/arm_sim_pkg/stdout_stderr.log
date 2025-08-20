@@ -1,0 +1,9 @@
+[35m[1mConsolidate compiler generated dependencies of target arm_hw[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o[0m
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:307:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kall_ok[m[K’ was not declared in this scope
+  307 |       [01;31m[Kall_ok[m[K = false;
+      |       [01;31m[K^~~~~~[m[K
+gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

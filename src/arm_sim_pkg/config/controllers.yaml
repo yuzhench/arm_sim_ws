@@ -1,0 +1,46 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    # use_sim_time: true
+
+  
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_position_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    # joint_group_position_controller:
+    #   type: forward_command_controller/ForwardCommandController
+
+
+# 分别为每个控制器提供它们自己的参数命名空间
+joint_state_broadcaster:
+  ros__parameters:
+    publish_rate: 50.0
+
+joint_position_controller:
+   ros__parameters:
+    joints:
+      - joint_base
+      - joint_base_big_arm
+      - joint_big_arm_small_arm
+      - joint_small_arm_wrist
+      - joint_wrist_hand
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+
+    # state_publish_rate: 50.0
+    # action_monitor_rate: 20.0
+
+
+# joint_group_position_controller:
+#   ros__parameters:
+#     interface_name: position
+#     joints:
+#       - joint_base
+#       - joint_base_big_arm
+#       - joint_big_arm_small_arm
+#       - joint_small_arm_wrist
+#       - joint_wrist_hand

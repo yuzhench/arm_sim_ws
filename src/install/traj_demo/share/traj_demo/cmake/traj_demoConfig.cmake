@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/traj_demo/ament_cmake_core/traj_demoConfig.cmake

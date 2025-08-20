@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/my_arm_moveit_config/ament_cmake_environment_hooks/local_setup.sh

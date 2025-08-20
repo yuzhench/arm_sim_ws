@@ -1,0 +1,12 @@
+[0.015s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16
+[0.070s] [ 33%] [32mBuilding CXX object CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o[0m
+[1.621s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:352:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[1.621s]   352 | }
+[1.621s]       |  [01;31m[K^[m[K
+[1.621s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:14:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[1.621s]    14 | [01;36m[K{[m[K
+[1.622s]       | [01;36m[K^[m[K
+[2.002s] gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+[2.003s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+[2.003s] gmake: *** [Makefile:146: all] Error 2
+[2.006s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg -- -j16 -l16

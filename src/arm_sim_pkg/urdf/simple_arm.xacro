@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="simple_arm">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="five_joint_arm">
 
   <!-- 参数：连杆长度 -->
   <xacro:property name="l1" value="0.085"/>
@@ -13,16 +13,7 @@
   <xacro:property name="wrist_arm_lenth" value="0.2009"/>
   <xacro:property name="hand_wrist_join_center_to_center" value="0.043498"/>
 
-
-
-
-
-
-
-
-
-
-
+  <xacro:property name="pkg" value="arm_sim_pkg"/>
 
 
   <!-- <xacro:property name="l2" value="0.25"/> -->
@@ -31,7 +22,7 @@
 
   <link name="base_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
       <!-- 如果你的 BASE_LINKE_CP_STL.stl 在导出时 origin=joint 处，就不需要偏移 -->
@@ -68,7 +59,7 @@
 
   <link name="link1_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -102,7 +93,7 @@
 
    <link name="big_arm_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -135,7 +126,7 @@
 
   <link name="small_arm_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -169,7 +160,7 @@
 
   <link name="wrist_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -203,7 +194,7 @@
 
   <link name="hand_link">
     <!-- 可选：定义包名变量 -->
-    <xacro:property name="pkg" value="arm_sim_pkg"/>
+    <!-- <xacro:property name="pkg" value="arm_sim_pkg"/> -->
 
     <visual>
        <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -225,154 +216,93 @@
   </link>
 
 
+ <!-- ===== ros2_control 驱动定义 ===== -->
+
+  <!-- for the fake hardware interface -->
+ <!-- <ros2_control name="FiveJointHW" type="system">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+    </hardware>
+    <joint name="joint_base">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+    <joint name="joint_base_big_arm">
+      <command_interface name="position">
+        <param name="min">-1.047</param>
+        <param name="max">1.047</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+    <joint name="joint_big_arm_small_arm">
+      <command_interface name="position">
+        <param name="min">-1.047</param>
+        <param name="max">1.047</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+    <joint name="joint_small_arm_wrist">
+      <command_interface name="position">
+        <param name="min">-1.047</param>
+        <param name="max">1.047</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+    <joint name="joint_wrist_hand">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+    </joint>
+</ros2_control> -->
  
+
+  <!-- for the real world hardware interface -->
+<ros2_control name="FiveJointHW" type="system">
+  <hardware>
+    <!-- 使用你的硬件插件 -->
+    <plugin>arm_sim_pkg/ArmHW</plugin>
+
+    <param name="device">/dev/ttyACM1</param>
+    <param name="baudrate">115200</param>
+    <param name="joint_ids">0x01,0x02,0x03,0x04,0x05</param>
+    <param name="default_acc">2.0</param>
+    <param name="default_vel">2.0</param>
+    <param name="allow_offline">false</param>
+    <param name="send_rate_hz">200.0</param>
+  </hardware>
+
+  <!-- 注意：这里不要再放 min/max；物理角度上下限请在 URDF 的 <joint><limit lower/upper> 里定义 -->
+  <joint name="joint_base">
+    <command_interface name="position"/>
+    <state_interface   name="position"/>
+  </joint>
+
+  <joint name="joint_base_big_arm">
+    <command_interface name="position"/>
+    <state_interface   name="position"/>
+  </joint>
+
+  <joint name="joint_big_arm_small_arm">
+    <command_interface name="position"/>
+    <state_interface   name="position"/>
+  </joint>
+
+  <joint name="joint_small_arm_wrist">
+    <command_interface name="position"/>
+    <state_interface   name="position"/>
+  </joint>
+
+  <joint name="joint_wrist_hand">
+    <command_interface name="position"/>
+    <state_interface   name="position"/>
+  </joint>
+</ros2_control>
  
-
-
-
-
-
-
-
-
-
-
-  <!-- 基座 -->
-  <!-- <link name="base_link">
-    <visual>
-      <geometry><cylinder radius='0.1' length='0.2'/></geometry>
-    </visual>
-    <collision>
-      <geometry><cylinder radius='0.1' length='0.2'/></geometry>
-    </collision>
-  </link> -->
-
-
-  <!-- 根节点：把 link1_link（由宏生成）挂到 base_link -->
-  <!-- <joint name="joint_base" type="continuous">
-    <parent link="base_link"/>
-    <child  link="link1_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-
-     <axis  xyz="0 0 1"/>
-    <limit  effort="5.0" velocity="1.0"/>
-  </joint> -->
-
-
-
-   <!-- 第一节连杆 -->
-  <!-- <link name="link1_link">
-    <visual>
-       <origin xyz="0 0 ${l1/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${l1}"/></geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 ${l1/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${l1}"/></geometry>
-    </collision>
-  </link> -->
-
-
-  <!-- 根节点：把 link1_link（由宏生成）挂到 base_link -->
-  <!-- <joint name="joint_base_big_arm" type="revolute">
-    <parent link="link1_link"/>
-    <child  link="big_arm_link"/>
-    <origin xyz="0 0 ${l1}" rpy="0 0 0"/>
-    <axis  xyz="0 1 0"/>
-    <limit lower="-1.047" upper="1.047" effort="2.0" velocity="1.0"/>
-  </joint> -->
-
-
-   <!-- small arm link  -->
-  <!-- <link name="big_arm_link">
-    <visual>
-       <origin xyz="0 0 ${big_arm/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${big_arm}"/></geometry>
-      <material name="Blue"><color rgba="0 0 1 1"/></material>
-
-    </visual>
-    <collision>
-      <origin xyz="0 0 ${big_arm/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${big_arm}"/></geometry>
-    </collision>
-  </link> -->
-
-
-
-  <!-- joint between the big arm & small arm -->
-  <!-- <joint name="joint_big_arm_small_arm" type="revolute">
-    <parent link="big_arm_link"/>
-    <child  link="small_arm_link"/>
-    <origin xyz="0 0 ${big_arm}" rpy="0 0 0"/>
-    <axis  xyz="0 1 0"/>
-    <limit lower="-1.047" upper="1.047" effort="2.0" velocity="1.0"/>
-  </joint> -->
-
-
-   <!-- small arm link  -->
-  <!-- <link name="small_arm_link">
-    <visual>
-       <origin xyz="0 0 ${small_arm/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${small_arm}"/></geometry>
-      <material name="green"><color rgba="0 1 0 1"/></material>
-
-    </visual>
-    <collision>
-      <origin xyz="0 0 ${small_arm/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${small_arm}"/></geometry>
-    </collision>
-  </link> -->
-
-
-   <!-- joint between the small arm & wrist -->
-  <!-- <joint name="joint_small_arm_wrist" type="revolute">
-    <parent link="small_arm_link"/>
-    <child  link="wrist_link"/>
-    <origin xyz="0 0 ${small_arm}" rpy="0 0 0"/>
-    <axis  xyz="0 1 0"/>
-    <limit lower="-1.047" upper="1.047" effort="2.0" velocity="1.0"/>
-  </joint> -->
-
-
-   <!-- wrist link  -->
-  <!-- <link name="wrist_link">
-    <visual>
-       <origin xyz="0 0 ${wrist/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${wrist}"/></geometry>
-      <material name="orange"><color rgba="1 0.7 0 1"/></material>
-
-    </visual>
-    <collision>
-      <origin xyz="0 0 ${wrist/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${wrist}"/></geometry>
-    </collision>
-  </link> -->
-
-
-  <!-- joint between the wrist & hand -->
-  <!-- <joint name="joint_wrist_hand" type="continuous">
-    <parent link="wrist_link"/>
-    <child  link="hand_link"/>
-    <origin xyz="0 0 ${wrist}" rpy="0 0 0"/>
-    <axis  xyz="0 0 1"/>
-    <limit effort="2.0" velocity="1.0"/>
-  </joint> -->
-
-
-   <!-- wrist link  -->
-  <!-- <link name="hand_link">
-    <visual>
-       <origin xyz="0 0 ${hand/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${hand}"/></geometry>
-      <material name="purple"><color rgba="0.5 0 0.5 1"/></material>
-
-    </visual>
-    <collision>
-      <origin xyz="0 0 ${hand/2}" rpy="0 0 0"/>
-      <geometry><box size="0.1 0.1 ${hand}"/></geometry>
-    </collision>
-  </link> -->
-
 
 
 </robot>

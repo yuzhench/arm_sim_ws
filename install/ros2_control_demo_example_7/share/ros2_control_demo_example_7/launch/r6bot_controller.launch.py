@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/example_7/bringup/launch/r6bot_controller.launch.py

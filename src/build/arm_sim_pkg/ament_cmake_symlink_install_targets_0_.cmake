@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/arm_sim_pkg/libarm_hw.so" "TARGETS" "arm_hw" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")

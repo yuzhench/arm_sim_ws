@@ -1,0 +1,1 @@
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7/ament_cmake_environment_hooks/local_setup.sh

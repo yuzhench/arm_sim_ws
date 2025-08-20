@@ -1,0 +1,11 @@
+[0.016s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/arm_sim_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/arm_sim_pkg -- -j16 -l16
+[0.059s] [35m[1mConsolidate compiler generated dependencies of target arm_hw[0m
+[0.077s] [ 33%] [32mBuilding CXX object CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o[0m
+[1.648s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[1.648s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:307:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kall_ok[m[K’ was not declared in this scope
+[1.648s]   307 |       [01;31m[Kall_ok[m[K = false;
+[1.648s]       |       [01;31m[K^~~~~~[m[K
+[2.029s] gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+[2.029s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+[2.029s] gmake: *** [Makefile:146: all] Error 2
+[2.031s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/arm_sim_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/build/arm_sim_pkg -- -j16 -l16

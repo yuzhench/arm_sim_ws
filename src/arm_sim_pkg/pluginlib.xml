@@ -1,0 +1,6 @@
+<library path="libarm_hw">
+  <class
+    name="arm_sim_pkg/ArmHW"
+    type="arm_sim_pkg::ArmHW"
+    base_class_type="hardware_interface::SystemInterface" />
+</library>

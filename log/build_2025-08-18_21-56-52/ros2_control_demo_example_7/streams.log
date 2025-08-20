@@ -1,0 +1,90 @@
+[0.008s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/example_7 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7
+[0.058s] -- The CXX compiler identification is GNU 11.4.0
+[0.065s] -- Detecting CXX compiler ABI info
+[0.133s] -- Detecting CXX compiler ABI info - done
+[0.137s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.137s] -- Detecting CXX compile features
+[0.137s] -- Detecting CXX compile features - done
+[0.142s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.244s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.282s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.362s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[0.403s] -- Found hardware_interface: 2.51.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[0.434s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.440s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.447s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.456s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.467s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.591s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.594s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.615s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.675s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.677s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.689s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.690s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.699s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.708s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.717s] -- Looking for C++ include pthread.h
+[0.812s] -- Looking for C++ include pthread.h - found
+[0.812s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.900s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.900s] -- Found Threads: TRUE  
+[0.941s] -- Found kdl_parser: 2.6.4 (/opt/ros/humble/share/kdl_parser/cmake)
+[0.956s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.957s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.957s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.962s] -- Found controller_interface: 2.51.0 (/opt/ros/humble/share/controller_interface/cmake)
+[0.967s] -- Found realtime_tools: 2.14.0 (/opt/ros/humble/share/realtime_tools/cmake)
+[0.990s] -- Found ament_cmake_pytest: 1.3.12 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[1.931s] -- Configuring done
+[1.976s] -- Generating done
+[1.983s] -- Build files have been written to: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7
+[1.998s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/example_7 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7
+[2.000s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7 -- -j16 -l16
+[2.053s] [ 40%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/controller/r6bot_controller.cpp.o[0m
+[2.053s] [ 40%] [32mBuilding CXX object CMakeFiles/send_trajectory.dir/reference_generator/send_trajectory.cpp.o[0m
+[2.054s] [ 60%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/hardware/r6bot_hardware.cpp.o[0m
+[5.714s] [ 80%] [32m[1mLinking CXX executable send_trajectory[0m
+[5.877s] [ 80%] Built target send_trajectory
+[7.946s] [100%] [32m[1mLinking CXX shared library libros2_control_demo_example_7.so[0m
+[8.277s] [100%] Built target ros2_control_demo_example_7
+[8.288s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7 -- -j16 -l16
+[8.289s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7
+[8.296s] -- Install configuration: ""
+[8.296s] -- Execute custom install script
+[8.297s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7//ros2_control_demo_example_7.xml
+[8.305s] -- Up-to-date symlink: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7//ros2_control_demo_example_7.xml
+[8.306s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/include/ros2_control_demo_example_7/ros2_control_demo_example_7/r6bot_hardware.hpp
+[8.314s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/launch/view_r6bot.launch.py
+[8.322s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/ros2_control/r6bot.ros2_control.xacro
+[8.331s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/urdf/r6bot.urdf.xacro
+[8.341s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/launch/r6bot_controller.launch.py
+[8.351s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/launch/send_trajectory.launch.py
+[8.359s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/config/r6bot_controller.yaml
+[8.368s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/lib/ros2_control_demo_example_7/send_trajectory
+[8.376s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/library_path.sh
+[8.384s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/library_path.dsv
+[8.393s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ament_index/resource_index/package_run_dependencies/ros2_control_demo_example_7
+[8.401s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ament_index/resource_index/parent_prefix_path/ros2_control_demo_example_7
+[8.409s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/ament_prefix_path.sh
+[8.417s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/ament_prefix_path.dsv
+[8.427s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/path.sh
+[8.435s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/environment/path.dsv
+[8.448s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/local_setup.bash
+[8.457s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/local_setup.sh
+[8.465s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/local_setup.zsh
+[8.473s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/local_setup.dsv
+[8.481s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/package.dsv
+[8.490s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ament_index/resource_index/packages/ros2_control_demo_example_7
+[8.498s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/ros2_control_demo_example_7
+[8.507s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ament_index/resource_index/controller_interface__pluginlib__plugin/ros2_control_demo_example_7
+[8.515s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/ament_cmake_export_targets-extras.cmake
+[8.524s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.532s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/ros2_control_demo_example_7Config.cmake
+[8.542s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/ros2_control_demo_example_7Config-version.cmake
+[8.552s] -- Symlinking: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/package.xml
+[8.561s] -- Installing: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/lib/libros2_control_demo_example_7.so
+[8.572s] -- Set runtime path of "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/lib/libros2_control_demo_example_7.so" to ""
+[8.572s] -- Installing: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/export_ros2_control_demo_example_7Export.cmake
+[8.572s] -- Installing: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/share/ros2_control_demo_example_7/cmake/export_ros2_control_demo_example_7Export-noconfig.cmake
+[8.576s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7

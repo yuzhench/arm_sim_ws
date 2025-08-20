@@ -1,0 +1,263 @@
+// file: src/arm_hw.cpp
+#include "arm_sim_pkg/arm_hw.hpp"
+#include "arm_sim_pkg/motor_controller.hpp"   // ★ 新增
+
+#include <pluginlib/class_list_macros.hpp>
+#include <rclcpp/rclcpp.hpp>
+
+#include <cerrno>
+#include <cstring>
+#include <sstream>
+#include <algorithm>
+#include <chrono>
+
+namespace arm_sim_pkg
+{
+
+// ========== on_init ==========
+// 解析 URDF <ros2_control> 的 <param>，初始化内部缓存。
+// 注意：必须先调基类 on_init(info)。
+hardware_interface::CallbackReturn
+ArmHW::on_init(const hardware_interface::HardwareInfo & info)
+{
+  if (hardware_interface::SystemInterface::on_init(info) !=
+      hardware_interface::CallbackReturn::SUCCESS)
+  {
+    return hardware_interface::CallbackReturn::ERROR;
+  }
+  auto logger = rclcpp::get_logger("ArmHW");
+
+  // 必需参数：device、baudrate
+  try {
+    device_   = info_.hardware_parameters.at("device");
+    baudrate_ = std::stoi(info_.hardware_parameters.at("baudrate"));
+  } catch (const std::exception &e) {
+    RCLCPP_ERROR(logger, "Missing/invalid param 'device' or 'baudrate': %s", e.what());
+    return hardware_interface::CallbackReturn::ERROR;
+  }
+
+  // 可选：joint_ids（"1,2,3,4,5" 或 "0x01,0x02,...")
+  if (auto it = info_.hardware_parameters.find("joint_ids");
+      it != info_.hardware_parameters.end())
+  {
+    joint_ids_.clear();
+    std::stringstream ss(it->second);
+    std::string tok;
+    while (std::getline(ss, tok, ',')) {
+      if (tok.empty()) continue;
+      tok.erase(0, tok.find_first_not_of(" \t"));
+      tok.erase(tok.find_last_not_of(" \t") + 1);
+      int id = (tok.rfind("0x", 0) == 0 || tok.rfind("0X", 0) == 0)
+                ? std::stoi(tok, nullptr, 16)
+                : std::stoi(tok);
+      joint_ids_.push_back(id & 0xFF);
+    }
+  }
+
+  // 可选：默认加速度/速度/是否允许离线启动/下发限频
+  if (auto it = info_.hardware_parameters.find("default_acc"); it != info_.hardware_parameters.end())
+    default_acc_ = std::stod(it->second);
+  if (auto it = info_.hardware_parameters.find("default_vel"); it != info_.hardware_parameters.end())
+    default_vel_ = std::stod(it->second);
+  if (auto it = info_.hardware_parameters.find("allow_offline"); it != info_.hardware_parameters.end())
+    allow_offline_ = (it->second == "true" || it->second == "1");
+  if (auto it = info_.hardware_parameters.find("send_rate_hz"); it != info_.hardware_parameters.end())
+    send_rate_hz_ = std::max(1.0, std::stod(it->second));
+
+  // 关节缓存
+  njoints_ = info_.joints.size();
+  pos_state_.assign(njoints_, 0.0);
+  pos_cmd_.assign(njoints_, 0.0);
+  last_sent_ = pos_cmd_;
+
+  // 日志
+  RCLCPP_INFO(logger,
+    "on_init: device=%s baud=%d joints=%zu ids=%zu acc=%.3f vel=%.3f offline=%s rate=%.1fHz",
+    device_.c_str(), baudrate_, njoints_, joint_ids_.size(),
+    default_acc_, default_vel_, (allow_offline_ ? "true" : "false"), send_rate_hz_);
+
+  return hardware_interface::CallbackReturn::SUCCESS;
+}
+
+// ========== export_state_interfaces ==========
+// 把每个关节的“状态接口(position)”绑定到 pos_state_[i]
+std::vector<hardware_interface::StateInterface>
+ArmHW::export_state_interfaces()
+{
+  std::vector<hardware_interface::StateInterface> si;
+  si.reserve(njoints_);
+  for (size_t i = 0; i < njoints_; ++i) {
+    si.emplace_back(info_.joints[i].name,
+                    hardware_interface::HW_IF_POSITION,
+                    &pos_state_[i]);
+  }
+  return si;
+}
+
+// ========== export_command_interfaces ==========
+// 把每个关节的“命令接口(position)”绑定到 pos_cmd_[i]
+std::vector<hardware_interface::CommandInterface>
+ArmHW::export_command_interfaces()
+{
+  std::vector<hardware_interface::CommandInterface> ci;
+  ci.reserve(njoints_);
+  for (size_t i = 0; i < njoints_; ++i) {
+    ci.emplace_back(info_.joints[i].name,
+                    hardware_interface::HW_IF_POSITION,
+                    &pos_cmd_[i]);
+  }
+  return ci;
+}
+
+// ========== on_configure ==========
+// 打开串口并准备设备层对象（使用我们新的 MotorController）
+hardware_interface::CallbackReturn
+ArmHW::on_configure(const rclcpp_lifecycle::State &)
+{
+  auto logger = rclcpp::get_logger("ArmHW");
+
+  if (joint_ids_.empty()) {
+    // 没给就默认单电机 ID = 1
+    joint_ids_.push_back(0x01);
+  }
+  if (joint_ids_.size() != njoints_) {
+    RCLCPP_WARN(logger, "njoints(%zu) != joint_ids(%zu), will use min()", njoints_, joint_ids_.size());
+  }
+
+  ctrl_ = std::make_unique<MotorController>();
+  if (!ctrl_->open(device_, baudrate_)) {
+    RCLCPP_ERROR(logger, "open(%s, %d) failed: %s",
+                 device_.c_str(), baudrate_, std::strerror(errno));
+    if (!allow_offline_) {
+      ctrl_.reset();
+      return hardware_interface::CallbackReturn::ERROR;
+    } else {
+      RCLCPP_WARN(logger, "allow_offline=true → 继续运行（不真实下发）");
+    }
+  }
+
+  last_tx_time_ = std::chrono::steady_clock::now();
+  RCLCPP_INFO(logger, "on_configure done. ready=%s",
+              (ctrl_ && ctrl_->is_open()) ? "yes" : "no (offline)");
+  return hardware_interface::CallbackReturn::SUCCESS;
+}
+
+// ========== on_activate ==========
+// 进入运行前：对齐命令以避免突跃；可选：使能电机、同步时间。
+hardware_interface::CallbackReturn
+ArmHW::on_activate(const rclcpp_lifecycle::State &)
+{
+  pos_cmd_ = pos_state_;
+  last_sent_ = pos_cmd_;
+  last_tx_time_ = std::chrono::steady_clock::now();
+
+  if (ctrl_ && ctrl_->is_open()) {
+    // 使能所有在用 ID
+    const size_t n = std::min(njoints_, joint_ids_.size());
+    for (size_t i = 0; i < n; ++i) {
+      ctrl_->enable_motor(static_cast<uint8_t>(joint_ids_[i]));
+    }
+    // 与 Python 行为一致：同步一次系统时间
+    ctrl_->set_system_time_now();
+  }
+  return hardware_interface::CallbackReturn::SUCCESS;
+}
+
+// ========== on_deactivate ==========
+// 退出运行：可选 disable，关闭串口。
+hardware_interface::CallbackReturn
+ArmHW::on_deactivate(const rclcpp_lifecycle::State &)
+{
+  // if (ctrl_ && ctrl_->is_open()) {
+  //   // 使能所有在用 ID
+  //   const size_t n = std::min(njoints_, joint_ids_.size());
+  //   for (size_t i = 0; i < n; ++i) {
+  //     ctrl_->disable_motor(static_cast<uint8_t>(joint_ids_[i]));
+  //   }
+  // }
+  // ctrl_.reset();
+  return hardware_interface::CallbackReturn::SUCCESS;
+}
+
+// ========== read ==========
+// 从硬件读取状态。现在先用“镜像命令”的开环方案，保证控制器正常工作。
+// 以后想要真实反馈，可以用 ctrl_->request_feedback() 解析 FEEDBACK:...
+hardware_interface::return_type
+ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
+{
+  for (size_t i = 0; i < njoints_; ++i) {
+    pos_state_[i] = pos_cmd_[i];
+  }
+  return hardware_interface::return_type::OK;
+}
+
+// ========== write ==========
+// 把 pos_cmd_ 下发给电机（按 Python 的二进制协议）。
+// 这里做了简单的“变化阈值 + 限频”防抖，避免每个控制周期都发送。
+hardware_interface::return_type
+ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
+{
+  if (!(ctrl_ && ctrl_->is_open())) {
+    return hardware_interface::return_type::OK;
+  }
+
+  const double min_step = 1e-3;  // Minimum step size to trigger a command
+  const auto now = std::chrono::steady_clock::now();
+  const double dt = std::chrono::duration<double>(now - last_tx_time_).count();
+  
+  // Rate limiting
+  if (dt < (1.0 / send_rate_hz_)) {
+    return hardware_interface::return_type::OK;
+  }
+  last_tx_time_ = now;
+
+  // Process each joint
+  const size_t n = std::min(njoints_, joint_ids_.size());
+  for (size_t i = 0; i < n; ++i) {
+    if (std::abs(pos_cmd_[i] - last_sent_[i]) > min_step) {
+      // Send new position command with velocity and acceleration limits
+      if (ctrl_->set_position(joint_ids_[i], pos_cmd_[i], default_vel_, default_acc_)) {
+        last_sent_[i] = pos_cmd_[i];
+      }
+    }
+  }
+    // 离线模式或未打开 → 忽略下发
+    return hardware_interface::return_type::OK;
+  }
+
+  const double min_step = 1e-3;  // 小于这个变化就不发
+  const auto now = std::chrono::steady_clock::now();
+  const double dt = std::chrono::duration<double>(now - this->last_tx_time_).count();
+  if (dt < (1.0 / this->send_rate_hz_)) {
+    return hardware_interface::return_type::OK;
+  }
+  this->last_tx_time_ = now;
+
+  const size_t n = std::min(this->njoints_, this->joint_ids_.size());
+  for (size_t i = 0; i < n; ++i) {
+    const double target = pos_cmd_[i];
+    if (std::fabs(target - last_sent_[i]) < min_step) continue;
+
+    // 与 Python 的 send_command(单电机)等价：<BB f f f I (LE)>
+    bool ok = ctrl_->send_combined_command(
+      static_cast<uint8_t>(joint_ids_[i]),
+      static_cast<float>(default_acc_),
+      static_cast<float>(default_vel_),
+      static_cast<float>(target),
+      /*timeout_ms=*/10000u
+    );
+    if (ok) {
+      last_sent_[i] = target;
+    } else {
+      RCLCPP_WARN(rclcpp::get_logger("ArmHW"),
+                  "send_combined_command failed (id=0x%02X)", joint_ids_[i] & 0xFF);
+    }
+  }
+
+  return hardware_interface::return_type::OK;
+}
+
+} // namespace arm_sim_pkg
+
+// 插件导出（让 controller_manager 能动态加载）
+PLUGINLIB_EXPORT_CLASS(arm_sim_pkg::ArmHW, hardware_interface::SystemInterface)

@@ -1,0 +1,2 @@
+source;share/movit_robot_arm_sim/environment/ament_prefix_path.sh
+source;share/movit_robot_arm_sim/environment/path.sh

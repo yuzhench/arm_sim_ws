@@ -7,10 +7,38 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(controller_manager REQUIRED)
+find_package(ros2_control REQUIRED)
+find_package(ros2_controllers REQUIRED)
+find_package(hardware_interface REQUIRED)
+find_package(joint_state_broadcaster REQUIRED)
+find_package(joint_trajectory_controller REQUIRED)
+find_package(rviz2 REQUIRED)
+find_package(xacro REQUIRED)
+find_package(pluginlib REQUIRED)
 
+# Install Python scripts
+install(
+  PROGRAMS
+    src/simple_joint_control.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+add_library(arm_hw SHARED
+  src/arm_hw.cpp
+  src/motor_controller.cpp
+)
+target_include_directories(arm_hw PUBLIC include)
+ament_target_dependencies(arm_hw
+  rclcpp
+  hardware_interface
+  pluginlib
+)
+pluginlib_export_plugin_description_file(hardware_interface pluginlib.xml)
+
+ 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -23,15 +51,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-
-install(
-  DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
+ 
 
 
 install(
-  DIRECTORY urdf
+  DIRECTORY urdf config launch
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -40,9 +64,15 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
-# install(
-#   DIRECTORY rviz
-#   DESTINATION share/${PROJECT_NAME}
-# )
+
+install(TARGETS arm_hw
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+install(FILES pluginlib.xml
+  DESTINATION share/${PROJECT_NAME}
+)
+ 
  
 ament_package()

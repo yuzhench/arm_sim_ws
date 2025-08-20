@@ -1,0 +1,17 @@
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:304:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_feedback_ok_[m[K’ was not declared in this scope
+  304 |   if (![01;31m[Kfirst_feedback_ok_[m[K) return OK;
+      |        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:304:35:[m[K [01;31m[Kerror: [m[K‘[01m[KOK[m[K’ was not declared in this scope; did you mean ‘[01m[Khardware_interface::return_type::OK[m[K’?
+  304 |   if (!first_feedback_ok_) return [01;31m[KOK[m[K;
+      |                                   [01;31m[K^~[m[K
+      |                                   [32m[Khardware_interface::return_type::OK[m[K
+In file included from [01m[K/opt/ros/humble/include/hardware_interface/system_interface.hpp:24[m[K,
+                 from [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/include/arm_sim_pkg/arm_hw.hpp:8[m[K,
+                 from [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:2[m[K:
+[01m[K/opt/ros/humble/include/hardware_interface/types/hardware_interface_return_values.hpp:24:3:[m[K [01;36m[Knote: [m[K‘[01m[Khardware_interface::return_type::OK[m[K’ declared here
+   24 |   [01;36m[KOK[m[K = 0,
+      |   [01;36m[K^~[m[K
+gmake[2]: *** [CMakeFiles/arm_hw.dir/build.make:76: CMakeFiles/arm_hw.dir/src/arm_hw.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_hw.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
