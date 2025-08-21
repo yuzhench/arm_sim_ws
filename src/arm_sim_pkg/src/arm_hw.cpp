@@ -247,8 +247,8 @@ ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
       //get the feedback for each jointS
       joint_feedback_[i] = fb;
       pos_state_[i] = fb.angle;
-      RCLCPP_INFO(rclcpp::get_logger("ArmHW"),
-                  "joint %zu feedback: angle=%.2f", i, fb.angle);
+      // RCLCPP_INFO(rclcpp::get_logger("ArmHW"),
+      //             "joint %zu feedback: angle=%.2f", i, fb.angle);
       first_feedback_ok_[i] = true;   // ← 成功读到一次反馈，记为 OK
     }
   }
@@ -301,8 +301,9 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
 
 
     const bool ok = ctrl_->send_combined_command(id, acc, vel, pos, /*timeout_ms*/ 10000u);
-    RCLCPP_INFO(lg, "motor index: %d, position pos is: %.2f", id, pos);
-
+    if (i == 0){
+      RCLCPP_INFO(lg, "motor index: %d, position pos is: %.2f", id, pos);
+    }
     if (!ok){
       RCLCPP_WARN(lg, "failed to send the command");
 
@@ -315,7 +316,7 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
     // }
   }
   //print a empty line
-  RCLCPP_INFO(lg, "\n");
+  // RCLCPP_INFO(lg, "\n");
 
 
   // 5) 全部成功才标记“发过一次”

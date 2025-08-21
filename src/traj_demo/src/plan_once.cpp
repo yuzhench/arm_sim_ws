@@ -2,6 +2,31 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 
+static void timeScale(moveit_msgs::msg::RobotTrajectory &traj, double scale)
+{
+  auto &jt = traj.joint_trajectory;
+  if (scale <= 0.0) return;
+
+  for (auto &pt : jt.points) {
+    // 1) 时间戳整体缩放
+    auto t_ns = pt.time_from_start.sec * 1000000000LL + pt.time_from_start.nanosec;
+    t_ns = static_cast<int64_t>(t_ns * scale);
+    pt.time_from_start.sec     = static_cast<int32_t>(t_ns / 1000000000LL);
+    pt.time_from_start.nanosec = static_cast<uint32_t>(t_ns % 1000000000LL);
+
+    // 2) 速度/加速度按维度缩放（保持物理一致性；有些控制器会忽略它们，但写上更严谨）
+    //   缩短一半时间 => 速度×(1/scale)=×2，加速度×(1/scale^2)=×4
+    if (!pt.velocities.empty()) {
+      for (auto &v : pt.velocities) v /= scale;
+    }
+    if (!pt.accelerations.empty()) {
+      for (auto &a : pt.accelerations) a /= (scale * scale);
+    }
+  }
+}
+
+
+
 int main(int argc, char** argv) {
   rclcpp::init(argc, argv);
   auto node = rclcpp::Node::make_shared(
@@ -20,20 +45,32 @@ int main(int argc, char** argv) {
   // 目标位姿（B）：示例值，按你臂的工作空间改
   // geometry_msgs::msg::PoseStamped target;
   // target.header.frame_id = BASE;
-  // target.pose.position.x = -0.005;
-  // target.pose.position.y = 0;
-  // target.pose.position.z = 0.43;
+  // target.pose.position.x = 0.2;
+  // target.pose.position.y = 0.3;
+  // target.pose.position.z = 0.4;
   // target.pose.orientation.w = 1.0;   // 简单单位四元数
   // mgi.setPoseTarget(target);
 
   mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
 
+
+  // std::map<std::string, double> joints{
+  //   {"joint_base", 0.5},
+  //   {"joint_base_big_arm", 0},
+  //   {"joint_big_arm_small_arm", 0.3},
+  //   {"joint_small_arm_wrist", 0.3},
+  //  };
+  // mgi.setJointValueTarget(joints);
+
   moveit::planning_interface::MoveGroupInterface::Plan plan;
   auto ret = mgi.plan(plan);
+
+  timeScale(plan.trajectory_, 0.1);
 
   if (ret == moveit::core::MoveItErrorCode::SUCCESS) {
     const auto& jt = plan.trajectory_.joint_trajectory;
     RCLCPP_INFO(node->get_logger(), "Planned trajectory points: %zu", jt.points.size());
+    
     // 打印每个轨迹点的 time / pos / vel / acc（默认已做时间参数化）
     for (size_t i = 0; i < jt.points.size(); ++i) {
       const auto& p = jt.points[i];

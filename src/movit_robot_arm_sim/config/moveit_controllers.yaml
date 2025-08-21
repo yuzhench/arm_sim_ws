@@ -13,4 +13,4 @@ moveit_simple_controller_manager:
       - joint_base_big_arm
       - joint_big_arm_small_arm
       - joint_small_arm_wrist
-      - joint_wrist_hand
+      # - joint_wrist_hand

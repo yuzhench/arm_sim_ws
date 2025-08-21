@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 1000
+    update_rate: 100
     # use_sim_time: true
 
   
@@ -25,7 +25,7 @@ joint_position_controller:
       - joint_base_big_arm
       - joint_big_arm_small_arm
       - joint_small_arm_wrist
-      - joint_wrist_hand
+      # - joint_wrist_hand
     command_interfaces:
       - position
     state_interfaces:
