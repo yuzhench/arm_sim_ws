@@ -6,6 +6,10 @@ from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, IncludeLaunchDescription
+
 
 import os
 import yaml
@@ -15,7 +19,11 @@ import xacro
 
 
 
-def generate_launch_description():
+def launch_setup(context, *args, **kwargs):
+    #use simulation or the real robot 
+    use_simulation = LaunchConfiguration("simulation_mode").perform(context)
+
+
     moveit_pkg = "movit_robot_arm_sim"
     arm_hw_pkg = "arm_sim_pkg"
     demo_pkg = "traj_demo"
@@ -32,6 +40,7 @@ def generate_launch_description():
     robot_description_content = xacro.process_file(
         str(xacro_file),
         mappings={
+            "simulation_mode": use_simulation
         }
     ).toprettyxml(indent='  ')
 
@@ -156,7 +165,7 @@ def generate_launch_description():
         ]
     )
 
-    return LaunchDescription([
+    return[
         control_node,
         robot_state_pub,
         joint_position_controller_spawner,
@@ -164,4 +173,16 @@ def generate_launch_description():
         move_group_launch,
         demo_node,
         rviz_node,
+    ]
+
+
+
+def generate_launch_description():
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            "simulation_mode",
+            default_value="true",  # 默认走假硬件；想默认真机就改为 "false"
+            description="Use fake hardware if true; real hardware if false."
+        ),
+        OpaqueFunction(function=launch_setup),
     ])

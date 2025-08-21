@@ -109,6 +109,9 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os, yaml
 from launch.substitutions import Command, PathJoinSubstitution, FindExecutable
+ 
+
+
 
 def generate_launch_description():
     moveit_pkg = 'movit_robot_arm_sim'
@@ -120,7 +123,11 @@ def generate_launch_description():
     kin_yaml   = os.path.join(share, 'config', 'kinematics.yaml')
     jl_yaml    = os.path.join(share, 'config', 'joint_limits.yaml')
 
-    robot_description = {'robot_description': Command(['xacro ', urdf_xacro])}
+    # robot_description = {'robot_description': Command(['xacro', urdf_xacro])}
+    robot_description = {
+        'robot_description': Command(["xacro", " ", urdf_xacro])
+        # 等价写法：Command(['xacro', urdf_xacro])
+    }
     with open(srdf_path, 'r') as f:
         srdf_string = f.read()
     with open(kin_yaml, 'r') as f:

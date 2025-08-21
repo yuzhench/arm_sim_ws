@@ -36,8 +36,12 @@ int main(int argc, char** argv) {
   // 按你的配置改这两个名字：
   const std::string GROUP = "arm_group";       // ← Planning Group 名（见 SRDF）
   const std::string BASE  = "base_link"; // ← 机器人基坐标系（见 URDF）
-
+  
+  
+  RCLCPP_INFO(node->get_logger(), "Initializing MoveGroupInterface...");
   moveit::planning_interface::MoveGroupInterface mgi(node, GROUP);
+  RCLCPP_INFO(node->get_logger(), "MoveGroupInterface initialized");
+
   mgi.setPlanningTime(5.0);
   mgi.setNumPlanningAttempts(5);
   mgi.setStartStateToCurrentState();  // 起点 = 当前状态（A）
@@ -51,16 +55,26 @@ int main(int argc, char** argv) {
   // target.pose.orientation.w = 1.0;   // 简单单位四元数
   // mgi.setPoseTarget(target);
 
-  mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
+  // mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
+
+  RCLCPP_INFO(node->get_logger(),"try to plan -------------------------");
+
+  
+ 
 
 
-  // std::map<std::string, double> joints{
-  //   {"joint_base", 0.5},
-  //   {"joint_base_big_arm", 0},
-  //   {"joint_big_arm_small_arm", 0.3},
-  //   {"joint_small_arm_wrist", 0.3},
-  //  };
-  // mgi.setJointValueTarget(joints);
+
+  std::map<std::string, double> joints{
+    {"joint_base", 0.5},
+    {"joint_base_big_arm", 0},
+    {"joint_big_arm_small_arm", 0.3},
+    {"joint_small_arm_wrist", 0.3},
+  };
+
+  mgi.setJointValueTarget(joints);
+
+
+
 
   moveit::planning_interface::MoveGroupInterface::Plan plan;
   auto ret = mgi.plan(plan);

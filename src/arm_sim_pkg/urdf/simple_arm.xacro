@@ -261,20 +261,45 @@
 </ros2_control> -->
  
 
-  <!-- for the real world hardware interface -->
-<ros2_control name="FiveJointHW" type="system">
-  <hardware>
-    <!-- 使用你的硬件插件 -->
-    <plugin>arm_sim_pkg/ArmHW</plugin>
+<!-- add the simulation option  -->
+<xacro:arg name="simulation_mode" default="false"/>
 
-    <param name="device">/dev/ttyACM2</param>
-    <param name="baudrate">115200</param>
-    <param name="joint_ids">0x01,0x02,0x03,0x04,0x05</param>
-    <param name="default_acc">20.0</param>
-    <param name="default_vel">20.0</param>
-    <param name="allow_offline">false</param>
-    <param name="send_rate_hz">200.0</param>
-  </hardware>
+
+<!-- for the real world hardware interface -->
+<ros2_control name="FiveJointHW" type="system">
+
+  <xacro:if value="$(arg simulation_mode)">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+      <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+       <param name="joints">joint_base joint_base_big_arm joint_big_arm_small_arm joint_small_arm_wrist joint_wrist_hand</param>
+      <param name="command_interfaces">position</param>
+      <param name="state_interfaces">position,velocity</param>
+      <param name="initial_positions">0 0 0 0 0</param>  
+      <param name="fake_sensor_commands">true</param>    
+      <param name="update_rate">200.0</param>           
+    </hardware>
+    </hardware> 
+
+  </xacro:if>
+
+
+
+  <xacro:unless value = "$(arg simulation_mode)">
+    <hardware>
+      <!-- 使用你的硬件插件 -->
+      <plugin>arm_sim_pkg/ArmHW</plugin>
+
+      <param name="device">/dev/ttyACM3</param>
+      <param name="baudrate">115200</param>
+      <param name="joint_ids">0x01,0x02,0x03,0x04,0x05</param>
+      <param name="default_acc">20.0</param>
+      <param name="default_vel">20.0</param>
+      <param name="allow_offline">false</param>
+      <param name="send_rate_hz">200.0</param>
+    </hardware>
+  </xacro:unless>
 
   <!-- 注意：这里不要再放 min/max；物理角度上下限请在 URDF 的 <joint><limit lower/upper> 里定义 -->
   <joint name="joint_base">
