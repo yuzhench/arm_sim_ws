@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
   // target.pose.orientation.w = 1.0;   // 简单单位四元数
   // mgi.setPoseTarget(target);
 
-  // mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
+  // mgi.setNamedTarget("farest_pose");  // 目标位姿名称（见 SRDF）
 
   RCLCPP_INFO(node->get_logger(),"try to plan -------------------------");
 
@@ -66,9 +66,9 @@ int main(int argc, char** argv) {
 
   std::map<std::string, double> joints{
     {"joint_base", 0.5},
-    {"joint_base_big_arm", 0},
-    {"joint_big_arm_small_arm", 0.3},
-    {"joint_small_arm_wrist", 0.3},
+    {"joint_base_big_arm", 0.3},
+    {"joint_big_arm_small_arm", 0.5},
+    {"joint_small_arm_wrist", 0.5},
   };
 
   mgi.setJointValueTarget(joints);
@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
   moveit::planning_interface::MoveGroupInterface::Plan plan;
   auto ret = mgi.plan(plan);
 
-  timeScale(plan.trajectory_, 0.1);
+  timeScale(plan.trajectory_, 1);
 
   if (ret == moveit::core::MoveItErrorCode::SUCCESS) {
     const auto& jt = plan.trajectory_.joint_trajectory;

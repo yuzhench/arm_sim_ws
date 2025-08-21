@@ -1,0 +1,15 @@
+[0.400s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup': PYTHONPATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/build --no-deps symlink_data
+[0.548s] running develop
+[0.634s] running egg_info
+[0.634s] writing robot_bringup.egg-info/PKG-INFO
+[0.634s] writing dependency_links to robot_bringup.egg-info/dependency_links.txt
+[0.634s] writing requirements to robot_bringup.egg-info/requires.txt
+[0.634s] writing top-level names to robot_bringup.egg-info/top_level.txt
+[0.635s] reading manifest file 'robot_bringup.egg-info/SOURCES.txt'
+[0.636s] writing manifest file 'robot_bringup.egg-info/SOURCES.txt'
+[0.637s] running build_ext
+[0.637s] Creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages/robot-bringup.egg-link (link to .)
+[0.638s] 
+[0.638s] Installed /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup
+[0.638s] running symlink_data
+[0.664s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup' returned '0': PYTHONPATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/build --no-deps symlink_data

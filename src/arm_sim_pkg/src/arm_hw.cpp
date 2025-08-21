@@ -300,10 +300,13 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
     const float   pos = static_cast<float>(pos_cmd_[i]);    // 只用当前的目标值
 
 
+    RCLCPP_INFO(lg, "pos_cmd = [%.3f, %.3f, %.3f, %.3f]",
+            pos_cmd_[0], pos_cmd_[1], pos_cmd_[2], pos_cmd_[3]);
+
     const bool ok = ctrl_->send_combined_command(id, acc, vel, pos, /*timeout_ms*/ 10000u);
-    if (i == 0){
-      RCLCPP_INFO(lg, "motor index: %d, position pos is: %.2f", id, pos);
-    }
+    // if (i == 0){
+    //   RCLCPP_INFO(lg, "motor index: %d , position pos is: %.2f", id, pos);
+    // }
     if (!ok){
       RCLCPP_WARN(lg, "failed to send the command");
 
