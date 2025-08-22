@@ -65,10 +65,10 @@ int main(int argc, char** argv) {
 
 
   std::map<std::string, double> joints{
-    {"joint_base", 0.5},
-    {"joint_base_big_arm", 0.3},
-    {"joint_big_arm_small_arm", 0.5},
-    {"joint_small_arm_wrist", 0.5},
+    {"joint_base", 1},
+    {"joint_base_big_arm", 1},
+    {"joint_big_arm_small_arm", 1},
+    {"joint_small_arm_wrist", 1},
   };
 
   mgi.setJointValueTarget(joints);

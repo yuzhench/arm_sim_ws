@@ -38,8 +38,13 @@ private:
 
   // Joint state management
   size_t njoints_{0};
-  std::vector<double> pos_state_;   // Current joint positions (rad)
-  std::vector<double> pos_cmd_;     // Target joint positions (rad)
+  std::vector<double> pos_state_;   
+  std::vector<double> vel_state_;   
+  std::vector<double> pos_cmd_;      
+  std::vector<double> vel_cmd_; 
+  std::vector<double> acc_cmd_; 
+
+
   std::vector<double> last_sent_;   // Last sent positions for debouncing
   std::vector<bool> joint_enabled_; // Track enabled state of each joint
 
@@ -71,7 +76,9 @@ private:
   std::vector<bool> first_feedback_ok_;
 
   bool ready_{false};          // 是否允许发“第一枪”
-bool first_shot_done_{false}; // 是否已经发过一次
+  bool first_shot_done_{false}; // 是否已经发过一次
+  std::ofstream* log_file_{nullptr};
+
 
 };
 

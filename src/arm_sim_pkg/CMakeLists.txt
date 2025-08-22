@@ -73,6 +73,10 @@ install(TARGETS arm_hw
 install(FILES pluginlib.xml
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(DIRECTORY rviz/
+  DESTINATION share/${PROJECT_NAME}/rviz
+)
  
  
 ament_package()

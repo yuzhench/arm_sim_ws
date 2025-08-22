@@ -11,6 +11,7 @@
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/meshes/LINK_5_HAND_CP_STL.stl
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/lib/libarm_hw.so
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/pluginlib.xml
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/rviz/arm_view.rviz
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/ament_index/resource_index/parent_prefix_path/arm_sim_pkg
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/share/arm_sim_pkg/environment/ament_prefix_path.sh

@@ -7,6 +7,10 @@
 #include <chrono>
 #include <cmath>
 #include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <ctime>
+using SteadyClock = std::chrono::steady_clock;
 
 
 
@@ -75,7 +79,11 @@ ArmHW::on_init(const hardware_interface::HardwareInfo & info)
   // init arrays
   njoints_ = info_.joints.size();
   pos_state_.assign(njoints_, 0.0);
+  vel_state_.assign(njoints_, 0.0);
+
   pos_cmd_.assign(njoints_, 0.0);
+  vel_cmd_.assign(njoints_, 0.0);
+  acc_cmd_.assign(njoints_,0.0);
   last_sent_.assign(njoints_, 0.0);
   joint_enabled_.assign(njoints_, false);
   joint_feedback_.resize(njoints_);
@@ -92,6 +100,20 @@ ArmHW::on_init(const hardware_interface::HardwareInfo & info)
 
   
 
+  // Initialize log file
+  auto t = std::time(nullptr);
+  auto tm = *std::localtime(&t);
+  std::ostringstream filename;
+  filename << "joint_commands_" << std::put_time(&tm, "%Y%m%d_%H%M%S") << ".txt";
+  
+  log_file_ = new std::ofstream(filename.str());
+  if (!log_file_->is_open()) {
+      RCLCPP_ERROR(logger, "Failed to open log file: %s", filename.str().c_str());
+      return hardware_interface::CallbackReturn::ERROR;
+  }
+  
+  RCLCPP_INFO(logger, "Opened log file: %s", filename.str().c_str());
+
   return hardware_interface::CallbackReturn::SUCCESS;
 }
 
@@ -103,6 +125,8 @@ ArmHW::export_state_interfaces()
   si.reserve(njoints_);
   for (size_t i = 0; i < njoints_; ++i) {
     si.emplace_back(info_.joints[i].name, hardware_interface::HW_IF_POSITION, &pos_state_[i]);
+    si.emplace_back(info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &vel_state_[i]);
+
   }
   return si;
 }
@@ -115,6 +139,9 @@ ArmHW::export_command_interfaces()
   ci.reserve(njoints_);
   for (size_t i = 0; i < njoints_; ++i) {
     ci.emplace_back(info_.joints[i].name, hardware_interface::HW_IF_POSITION, &pos_cmd_[i]);
+    ci.emplace_back(info_.joints[i].name, hardware_interface::HW_IF_VELOCITY, &vel_cmd_[i]);
+    ci.emplace_back(info_.joints[i].name, hardware_interface::HW_IF_ACCELERATION, &acc_cmd_[i]);
+
   }
   return ci;
 }
@@ -292,18 +319,54 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
   const size_t n = std::min(njoints_, joint_ids_.size());
   // bool all_ok = true;
 
-  // pos_cmd_[0] = 3.14;
+  // auto t0 = SteadyClock::now();
+
+  // RCLCPP_INFO(lg, "pos_cmd = [%.3f, %.3f, %.3f, %.3f]",
+  //           pos_cmd_[0], pos_cmd_[1], pos_cmd_[2], pos_cmd_[3]);
+  
+  // RCLCPP_INFO(lg, "vel_cmd = [%.3f, %.3f, %.3f, %.3f]",
+  //           vel_cmd_[0], vel_cmd_[1], vel_cmd_[2], vel_cmd_[3]);
+
+
   for (size_t i = 0; i < n; ++i) {
     const uint8_t id  = static_cast<uint8_t>(joint_ids_[i]);
-    const float   acc = static_cast<float>(default_acc_);   // 你已有的默认加速度
-    const float   vel = static_cast<float>(default_vel_);   // 你已有的默认速度
+    const float   acc = static_cast<float>(acc_cmd_[i]);     
+    const float   vel = static_cast<float>(vel_cmd_[i]);    
     const float   pos = static_cast<float>(pos_cmd_[i]);    // 只用当前的目标值
 
 
-    RCLCPP_INFO(lg, "pos_cmd = [%.3f, %.3f, %.3f, %.3f]",
-            pos_cmd_[0], pos_cmd_[1], pos_cmd_[2], pos_cmd_[3]);
+    // RCLCPP_WARN(lg, "curr acc is: %.2f: ", acc_cmd_[i]);
+    // RCLCPP_WARN(lg, "curr velocity is: %.2f: ",  vel_cmd_[i]);
 
-    const bool ok = ctrl_->send_combined_command(id, acc, vel, pos, /*timeout_ms*/ 10000u);
+
+
+    
+
+    //send the interpolated position value to the log file 
+   
+    // auto t1 = SteadyClock::now();
+
+    // Write the joint positions
+    // if ( i == 0 && log_file_ && log_file_->is_open()) {
+    //   *log_file_ << std::fixed << rclcpp::Clock().now().seconds() << " "
+    //           << pos_cmd_[0] << " " 
+    //           << pos_cmd_[1] << " " 
+    //           << pos_cmd_[2] << " " 
+    //           << pos_cmd_[3] << std::endl;
+      
+    // }
+    // auto t2 = SteadyClock::now();
+
+
+    // if (i == 0){
+    //   RCLCPP_WARN(lg,  "log file write in time cost is: %.2f", std::chrono::duration<double, std::milli>(t2-t1).count());
+    // }
+
+
+      
+    // const bool ok = ctrl_->send_combined_command(id, acc, vel, pos, /*timeout_ms 10000u */ 10000u);
+    const bool ok = ctrl_->send_combined_command(id, 20, 20, pos, /*timeout_ms 10000u */ 10000u);
+
     // if (i == 0){
     //   RCLCPP_INFO(lg, "motor index: %d , position pos is: %.2f", id, pos);
     // }
@@ -311,6 +374,11 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
       RCLCPP_WARN(lg, "failed to send the command");
 
     }
+
+    // auto t3 = SteadyClock::now();
+    // RCLCPP_WARN(lg,  "total time to send 4 motor command is: : %.4f", std::chrono::duration<double, std::milli>(t3-t0).count());
+
+
     // if (!ok) {
     //   all_ok = false;
     //   RCLCPP_WARN(lg, "TX FAIL id=0x%02X pos=%.6f", id, pos);

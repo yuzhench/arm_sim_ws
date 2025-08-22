@@ -55,7 +55,7 @@ def launch_setup(context, *args, **kwargs):
 
     # rviz configuration 
     rviz_cfg = PathJoinSubstitution([
-        arm_hw_share, 'rviz', 'view.rviz'
+        arm_hw_share, 'rviz', 'arm_view.rviz'
     ])
 
 
@@ -89,7 +89,7 @@ def launch_setup(context, *args, **kwargs):
         name="rviz2", 
         output='screen',
         arguments=['-d', rviz_cfg],
-        parameters=[{'use_sim_time': True}, robot_description]
+        parameters=[{'use_sim_time': True}, robot_description],
 
     )
 

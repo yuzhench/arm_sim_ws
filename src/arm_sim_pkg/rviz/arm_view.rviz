@@ -1,0 +1,35 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: moveit_rviz_plugin/MotionPlanning
+    Name: MotionPlanning
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: RobotModel
+      Description Topic: /robot_description   # RViz 会用这个参数（你在 launch 里已传）
+  Global Options:
+    Fixed Frame: base_link   # ← 按你的 URDF 根坐标系改
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Shortcut Key: i
+    - Class: rviz_default_plugins/MoveCamera
+      Shortcut Key: m
+    - Class: rviz_default_plugins/Select
+      Shortcut Key: s
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 1.5
+      Pitch: 0.4
+      Yaw: 0.7

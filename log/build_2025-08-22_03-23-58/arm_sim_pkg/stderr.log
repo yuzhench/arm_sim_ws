@@ -1,0 +1,7 @@
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::return_type arm_sim_pkg::ArmHW::write(const rclcpp::Time&, const rclcpp::Duration&)[m[K’:
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:333:19:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kacc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  333 |     const float   [01;35m[Kacc[m[K = static_cast<float>(acc_cmd_[i]);
+      |                   [01;35m[K^~~[m[K
+[01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg/src/arm_hw.cpp:334:19:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  334 |     const float   [01;35m[Kvel[m[K = static_cast<float>(vel_cmd_[i]);
+      |                   [01;35m[K^~~[m[K

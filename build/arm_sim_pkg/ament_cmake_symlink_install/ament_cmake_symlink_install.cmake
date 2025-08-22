@@ -328,6 +328,9 @@ include("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg
 # install(FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg")
 ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "pluginlib.xml" "DESTINATION" "share/arm_sim_pkg")
 
+# install(DIRECTORY "rviz/" "DESTINATION" "share/arm_sim_pkg/rviz")
+ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" DIRECTORY "rviz/" "DESTINATION" "share/arm_sim_pkg/rviz")
+
 # install(FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/arm_sim_pkg" FILES "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/arm_sim_pkg/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_sim_pkg" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

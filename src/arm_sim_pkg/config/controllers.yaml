@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100
+    update_rate: 1000
     # use_sim_time: true
 
   
@@ -28,8 +28,11 @@ joint_position_controller:
       # - joint_wrist_hand
     command_interfaces:
       - position
+      - velocity 
+      - acceleration
     state_interfaces:
       - position
+      - velocity
 
     # state_publish_rate: 50.0
     # action_monitor_rate: 20.0
