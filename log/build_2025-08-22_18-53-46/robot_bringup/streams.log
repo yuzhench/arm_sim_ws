@@ -1,0 +1,24 @@
+[0.388s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup': PYTHONPATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/build --no-deps symlink_data
+[0.537s] running develop
+[0.623s] running egg_info
+[0.624s] creating robot_bringup.egg-info
+[0.624s] writing robot_bringup.egg-info/PKG-INFO
+[0.624s] writing dependency_links to robot_bringup.egg-info/dependency_links.txt
+[0.624s] writing requirements to robot_bringup.egg-info/requires.txt
+[0.624s] writing top-level names to robot_bringup.egg-info/top_level.txt
+[0.624s] writing manifest file 'robot_bringup.egg-info/SOURCES.txt'
+[0.625s] reading manifest file 'robot_bringup.egg-info/SOURCES.txt'
+[0.625s] writing manifest file 'robot_bringup.egg-info/SOURCES.txt'
+[0.626s] running build_ext
+[0.626s] Creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages/robot-bringup.egg-link (link to .)
+[0.627s] 
+[0.627s] Installed /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup
+[0.627s] running symlink_data
+[0.627s] creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/ament_index
+[0.627s] creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/ament_index/resource_index
+[0.627s] creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/ament_index/resource_index/packages
+[0.627s] symbolically linking /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/resource/robot_bringup -> /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/ament_index/resource_index/packages
+[0.627s] symbolically linking /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/package.xml -> /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/robot_bringup
+[0.627s] creating /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/robot_bringup/launch
+[0.627s] symbolically linking /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/launch/bringup.launch.py -> /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/share/robot_bringup/launch
+[0.650s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup' returned '0': PYTHONPATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/robot_bringup/build --no-deps symlink_data

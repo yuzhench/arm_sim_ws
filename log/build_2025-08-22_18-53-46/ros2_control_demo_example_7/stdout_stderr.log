@@ -38,9 +38,9 @@
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/ros2_control_demo_example_7
-[ 60%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/controller/r6bot_controller.cpp.o[0m
-[ 60%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/hardware/r6bot_hardware.cpp.o[0m
 [ 60%] [32mBuilding CXX object CMakeFiles/send_trajectory.dir/reference_generator/send_trajectory.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/hardware/r6bot_hardware.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_7.dir/controller/r6bot_controller.cpp.o[0m
 [ 80%] [32m[1mLinking CXX executable send_trajectory[0m
 [ 80%] Built target send_trajectory
 [100%] [32m[1mLinking CXX shared library libros2_control_demo_example_7.so[0m
