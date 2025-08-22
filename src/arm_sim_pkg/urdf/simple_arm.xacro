@@ -291,8 +291,8 @@
       <!-- 使用你的硬件插件 -->
       <plugin>arm_sim_pkg/ArmHW</plugin>
 
-      <param name="device">/dev/ttyACM1</param>
-      <param name="baudrate">1000000</param>
+      <param name="device">/dev/ttyACM0</param>
+      <param name="baudrate">115200</param>
       <param name="joint_ids">0x01,0x02,0x03,0x04,0x05</param>
       <param name="default_acc">20.0</param>
       <param name="default_vel">20.0</param>

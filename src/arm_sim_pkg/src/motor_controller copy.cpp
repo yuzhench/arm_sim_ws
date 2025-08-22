@@ -17,16 +17,13 @@ namespace arm_sim_pkg
 speed_t MotorController::baud_to_termios_(int baudrate)
 {
   switch (baudrate) {
-    case 9600:    return B9600;
-    case 19200:   return B19200;
-    case 38400:   return B38400;
-    case 57600:   return B57600;
-    case 115200:  return B115200;
-    case 230400:  return B230400;
-#ifdef B1000000
-    case 1000000: return B1000000;   // ← 新增
-#endif
-    default:      return B115200;
+    case 9600:   return B9600;
+    case 19200:  return B19200;
+    case 38400:  return B38400;
+    case 57600:  return B57600;
+    case 115200: return B115200;
+    case 230400: return B230400;
+    default:     return B115200;
   }
 }
 
@@ -244,119 +241,44 @@ bool MotorController::set_mech_zero(uint8_t motor_id)
 
 // ------ feedback ------
 
-// 清空串口输入缓冲，等价于 Python 的 ser.read(ser.in_waiting)
-void MotorController::flush_input_()
-{
-  if (fd_ < 0) return;
-  uint8_t tmp[512];
-  for (;;) {
-    ssize_t n = ::read(fd_, tmp, sizeof(tmp));
-    if (n <= 0) break;
-  }
-  // 或者直接： tcflush(fd_, TCIFLUSH);
-}
-
-
-
 bool MotorController::request_feedback(uint8_t motor_id, MotorFeedback &feedback, double timeout_sec)
 {
   if (fd_ < 0) return false;
 
-  // 先清空残留数据，避免上一帧尾巴影响同步
-  // flush_input_();   // 或者：tcflush(fd_, TCIFLUSH);
-
-  // 发送请求：<CMD_REQUEST_FEEDBACK, motor_id>
+  // request
   {
     uint8_t pkt[2] = { CMD_REQUEST_FEEDBACK, motor_id };
     if (!write_all_(pkt, sizeof(pkt))) return false;
   }
 
-  const auto t_end = std::chrono::steady_clock::now() + std::chrono::duration<double>(timeout_sec);
-
-  std::vector<uint8_t> bin_buf;  bin_buf.reserve(256); // 用于查找二进制包头 FE ED
-  std::string          ascii_buf; ascii_buf.reserve(256); // ASCII 回退缓存
+  // read ASCII lines until "FEEDBACK:" arrives or timeout
+  const auto t_end = std::chrono::steady_clock::now() +
+                     std::chrono::duration<double>(timeout_sec);
+  std::string resp;
+  resp.reserve(256);
 
   while (std::chrono::steady_clock::now() < t_end) {
-    // 小步轮询，提升响应性
     uint8_t tmp[256];
-    ssize_t n = read_some_(tmp, sizeof(tmp), /*timeout_ms*/ 10);
+    ssize_t n = read_some_(tmp, sizeof(tmp), 100);
     if (n < 0) return false;
     if (n == 0) continue;
 
-    // 追加到二进制缓冲
-    bin_buf.insert(bin_buf.end(), tmp, tmp + n);
+    resp.append(reinterpret_cast<const char*>(tmp), static_cast<size_t>(n));
 
-    // ---- A) 先找 ultra-compact 二进制包：头 0xFE 0xED + 固定 22 字节 ----
-    for (size_t i = 0; i + 1 < bin_buf.size(); ++i) {
-      if (bin_buf[i] == FEEDBACK_HDR0 && bin_buf[i+1] == FEEDBACK_HDR1) {
-        if (bin_buf.size() >= i + FEEDBACK_COMPACT_SIZE) {
-          const uint8_t *p = bin_buf.data() + i;
-
-          // 按 Python: '<BBBBBBBHHHHHBHH' 解包
-          auto rd8  = [&](size_t off)->uint8_t  { return p[off]; };
-          auto rd16 = [&](size_t off)->uint16_t {
-            return static_cast<uint16_t>(p[off] | (p[off+1] << 8)); // Little-Endian
-          };
-
-          if (rd8(0) != FEEDBACK_HDR0 || rd8(1) != FEEDBACK_HDR1) {
-            // 防御性校验
-            break;
-          }
-
-          uint8_t  rx_motor_id   = rd8(2);
-          uint8_t  mode_status   = rd8(3);
-          uint8_t  fault_info    = rd8(4);
-          uint8_t  motor_can_id  = rd8(5);
-          uint8_t  host_can_id   = rd8(6);
-          uint16_t sc_angle      = rd16(7);
-          uint16_t sc_vel        = rd16(9);
-          uint16_t sc_torque     = rd16(11);
-          uint16_t sc_temp       = rd16(13);
-          uint16_t sc_current    = rd16(15);
-          uint8_t  flags         = rd8(17);
-          uint16_t sc_tgt_angle  = rd16(18);
-          uint16_t sc_tol        = rd16(20);
-          (void)rx_motor_id; // 如需严格校验 motor_id，可比较 rx_motor_id == motor_id
-
-          // 反缩放（与 Python 完全一致）
-          feedback.mode_status      = static_cast<int>(mode_status);
-          feedback.fault_info       = static_cast<int>(fault_info);
-          feedback.motor_can_id     = static_cast<int>(motor_can_id);
-          feedback.host_can_id      = static_cast<int>(host_can_id);
-          feedback.angle            = static_cast<float>((sc_angle / ANGLE_SCALE)    - 30.0);
-          feedback.velocity         = static_cast<float>((sc_vel   / VELOCITY_SCALE) - 99.0);
-          feedback.torque           = static_cast<float>((sc_torque/ TORQUE_SCALE)   - 99.0);
-          feedback.temperature      = static_cast<float>( sc_temp  / TEMPERATURE_SCALE);
-          feedback.current          = static_cast<float>( sc_current / CURRENT_SCALE);
-          feedback.target_angle     = static_cast<float>((sc_tgt_angle / ANGLE_SCALE) - 30.0);
-          feedback.angle_tolerance  = static_cast<float>( sc_tol / TOLERANCE_SCALE);
-
-          feedback.current_valid     = (flags & FLAG_CURRENT_VALID)    != 0;
-          feedback.command_active    = (flags & FLAG_COMMAND_ACTIVE)   != 0;
-          feedback.command_completed = (flags & FLAG_COMMAND_COMPLETED)!= 0;
-
-          feedback.last_update_time =
-            std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
-          return true;
-        }
-        // 找到包头但长度不够，继续读
-        break;
-      }
-    }
-
-    // ---- B) ASCII 回退：拼到 ascii_buf，按行找 "FEEDBACK:" ----
-    ascii_buf.append(reinterpret_cast<const char*>(tmp), static_cast<size_t>(n));
+    // process by line
     for (;;) {
-      auto pos = ascii_buf.find('\n');
+      auto pos = resp.find('\n');
       if (pos == std::string::npos) break;
-      std::string line = ascii_buf.substr(0, pos);
-      ascii_buf.erase(0, pos + 1);
+      std::string line = resp.substr(0, pos);
+      resp.erase(0, pos + 1);
 
+      // expected: FEEDBACK:0xXX:mode,fault,motor_can_id,host_can_id,angle,velocity,torque,temp,current,current_valid,active,completed,target_angle,tolerance
       if (line.rfind("FEEDBACK:", 0) == 0) {
         auto colon2 = line.find(':', 9);
         if (colon2 == std::string::npos) continue;
         std::string payload = line.substr(colon2 + 1);
 
+        // split by comma
         std::vector<std::string> values;
         values.reserve(14);
         std::stringstream ss(payload);
@@ -385,16 +307,15 @@ bool MotorController::request_feedback(uint8_t motor_id, MotorFeedback &feedback
               ).count();
             return true;
           } catch (...) {
-            // 这一行解析失败就继续等下一行
+            return false;
           }
         }
       }
     }
   }
-
-  // 超时
-  return false;
+  return false; // timeout
 }
+
 
  
 

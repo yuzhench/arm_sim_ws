@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
   // target.pose.orientation.w = 1.0;   // 简单单位四元数
   // mgi.setPoseTarget(target);
 
-  // mgi.setNamedTarget("farest_pose");  // 目标位姿名称（见 SRDF）
+  // mgi.setNamedTarget("home_pose");  // 目标位姿名称（见 SRDF）
 
   RCLCPP_INFO(node->get_logger(),"try to plan -------------------------");
 

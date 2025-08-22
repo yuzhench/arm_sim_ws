@@ -65,27 +65,6 @@ constexpr double MIN_TORQUE_LIMIT = 0.1;
 // Python big-endian time header
 constexpr uint16_t TIME_COMMAND_HEADER = 0xABCD;
 
-
-
-// ------ NEW: ultra-compact binary feedback constants ------
-constexpr uint8_t  FEEDBACK_HDR0 = 0xFE;
-constexpr uint8_t  FEEDBACK_HDR1 = 0xED;
-constexpr size_t   FEEDBACK_COMPACT_SIZE = 22;
-
-constexpr double   ANGLE_SCALE       = 1000.0;
-constexpr double   VELOCITY_SCALE    = 100.0;
-constexpr double   TORQUE_SCALE      = 100.0;
-constexpr double   TEMPERATURE_SCALE = 100.0;
-constexpr double   CURRENT_SCALE     = 100.0;
-constexpr double   TOLERANCE_SCALE   = 1000.0;
-
-constexpr uint8_t  FLAG_CURRENT_VALID      = 0x01;
-constexpr uint8_t  FLAG_COMMAND_ACTIVE     = 0x02;
-constexpr uint8_t  FLAG_COMMAND_COMPLETED  = 0x04;
-// ----------------------------------------------------------
-
-
-
 struct MotorFeedback {
   int   mode_status{};
   int   fault_info{};
@@ -152,13 +131,6 @@ private:
   bool configure_port_(int fd, int baudrate);
   bool write_all_(const uint8_t *data, size_t nbytes);
   ssize_t read_some_(uint8_t *buf, size_t maxlen, int timeout_ms);
-
-
-  // ------ NEW: optional helper to clear input buffer ------
-  void flush_input_();   // 在 .cpp 里实现；也可用 tcflush(fd_, TCIFLUSH) 代替
-  // --------------------------------------------------------
-
-  
 
   // Packing helpers
   template<typename T>

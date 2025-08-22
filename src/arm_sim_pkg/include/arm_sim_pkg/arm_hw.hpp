@@ -80,6 +80,12 @@ private:
   std::ofstream* log_file_{nullptr};
 
 
+  //used for testing 
+  int debug_counter = 0;
+  double temp_time = 0; 
+  double time_helper_pt_1 = 0;
+
+
 };
 
 } // namespace arm_sim_pkg

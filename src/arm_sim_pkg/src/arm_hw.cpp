@@ -242,6 +242,8 @@ ArmHW::on_deactivate(const rclcpp_lifecycle::State &)
 hardware_interface::return_type
 ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
 {
+  auto t0 = SteadyClock::now();
+  auto lg = rclcpp::get_logger("ArmHW-read");
 
   //can't open the real motor
   if (!(ctrl_ && ctrl_->is_open())) {
@@ -260,14 +262,21 @@ ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
                 "njoints(%zu) != joint_ids(%zu) — please check the xacro file", njoints_, joint_ids_.size());
   }
 
+  auto t1 = SteadyClock::now();
   //go through each joint
   for (size_t i = 0; i < n; ++i) {
 
+    auto t3 = SteadyClock::now();
     if (!joint_enabled_[i]){
       RCLCPP_WARN(rclcpp::get_logger("ArmHW"),
                   "joint %zu is not enabled", i);
       continue;
     }
+    auto t4 = SteadyClock::now();
+
+    time_helper_pt_1 += std::chrono::duration<double, std::milli>(t4-t3).count();
+
+
 
     MotorFeedback fb;
     if (ctrl_->request_feedback(static_cast<uint8_t>(joint_ids_[i]), fb)) {
@@ -278,7 +287,30 @@ ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
       //             "joint %zu feedback: angle=%.2f", i, fb.angle);
       first_feedback_ok_[i] = true;   // ← 成功读到一次反馈，记为 OK
     }
+    
   }
+
+  auto t2 = SteadyClock::now();
+  if (debug_counter % 100 == 0 && debug_counter != 0){
+    RCLCPP_WARN(lg,  "total time for the for loop: : %.4f", temp_time / 100 );
+    temp_time = 0;
+
+  }
+  else{
+    temp_time += std::chrono::duration<double, std::milli>(t2-t1).count();
+    
+  }
+  debug_counter++; 
+
+
+
+  if (debug_counter % 100 == 0 && debug_counter != 0){
+    RCLCPP_WARN(lg,  " check joint enable x4  : %.4f", time_helper_pt_1 / 100 );
+    time_helper_pt_1 = 0;
+
+  }
+  
+
   return hardware_interface::return_type::OK;
 }
 
@@ -291,6 +323,8 @@ ArmHW::read(const rclcpp::Time &, const rclcpp::Duration &)
 hardware_interface::return_type
 ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
 {
+  auto t0 = SteadyClock::now();
+
 
   auto dubuglg = rclcpp::get_logger("!!!!!!!_debug_!!!!!!");
   auto lg = rclcpp::get_logger("ArmHW");
@@ -319,8 +353,7 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
   const size_t n = std::min(njoints_, joint_ids_.size());
   // bool all_ok = true;
 
-  // auto t0 = SteadyClock::now();
-
+ 
   // RCLCPP_INFO(lg, "pos_cmd = [%.3f, %.3f, %.3f, %.3f]",
   //           pos_cmd_[0], pos_cmd_[1], pos_cmd_[2], pos_cmd_[3]);
   
@@ -375,9 +408,7 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
 
     }
 
-    // auto t3 = SteadyClock::now();
-    // RCLCPP_WARN(lg,  "total time to send 4 motor command is: : %.4f", std::chrono::duration<double, std::milli>(t3-t0).count());
-
+ 
 
     // if (!ok) {
     //   all_ok = false;
@@ -395,6 +426,21 @@ ArmHW::write(const rclcpp::Time &, const rclcpp::Duration &)
   //   RCLCPP_INFO(lg, "write(): all commands sent successfully");
   //   first_shot_done_ = true;
   // }
+
+
+  //for debug
+  // auto t3 = SteadyClock::now();
+  // if (debug_counter % 100 == 0 && debug_counter != 0){
+  //   RCLCPP_WARN(lg,  "total time for the write is: : %.4f", temp_time / 100 );
+  //   temp_time = 0;
+
+  // }
+  // else{
+  //   temp_time += std::chrono::duration<double, std::milli>(t3-t0).count();
+    
+  // }
+  // debug_counter++; 
+
   return hardware_interface::return_type::OK;
 }
 
