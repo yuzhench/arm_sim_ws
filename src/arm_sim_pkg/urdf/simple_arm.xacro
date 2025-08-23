@@ -271,15 +271,14 @@
   <xacro:if value="$(arg simulation_mode)">
     <hardware>
       <plugin>mock_components/GenericSystem</plugin>
-      <hardware>
-      <plugin>mock_components/GenericSystem</plugin>
-       <param name="joints">joint_base joint_base_big_arm joint_big_arm_small_arm joint_small_arm_wrist joint_wrist_hand</param>
+      
+      <param name="joints">joint_base joint_base_big_arm joint_big_arm_small_arm joint_small_arm_wrist joint_wrist_hand</param>
       <param name="command_interfaces">position</param>
       <param name="state_interfaces">position,velocity</param>
       <param name="initial_positions">0 0 0 0 0</param>  
       <param name="fake_sensor_commands">true</param>    
       <param name="update_rate">200.0</param>           
-    </hardware>
+ 
     </hardware> 
 
   </xacro:if>
