@@ -1,0 +1,17 @@
+[0.008s] Invoking command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo': CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/lib:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo -- -j16 -l16
+[0.046s] [35m[1mConsolidate compiler generated dependencies of target plan_once[0m
+[0.068s] [ 50%] [32mBuilding CXX object CMakeFiles/plan_once.dir/src/plan_once.cpp.o[0m
+[3.094s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo/src/plan_once.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[3.094s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo/src/plan_once.cpp:130:43:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kmgi[m[K’
+[3.094s]   130 |       print_traj(plan, node->get_logger())
+[3.095s]       |                                           [01;31m[K^[m[K
+[3.095s]       |                                           [32m[K;[m[K
+[3.095s]   131 |       [32m[Kmgi[m[K.execute(plan);
+[3.095s]       |       [32m[K~~~[m[K                                  
+[3.095s] [01m[K/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo/src/plan_once.cpp:135:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[3.095s]   135 |     [01;31m[K}[m[K
+[3.095s]       |     [01;31m[K^[m[K
+[4.847s] gmake[2]: *** [CMakeFiles/plan_once.dir/build.make:76: CMakeFiles/plan_once.dir/src/plan_once.cpp.o] Error 1
+[4.847s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/plan_once.dir/all] Error 2
+[4.848s] gmake: *** [Makefile:146: all] Error 2
+[4.850s] Invoked command in '/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo' returned '2': CMAKE_PREFIX_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/movit_robot_arm_sim:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/robot_bringup:/opt/ros/humble LD_LIBRARY_PATH=/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/arm_sim_pkg/lib:/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/ros2_control_demo_example_7/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo -- -j16 -l16

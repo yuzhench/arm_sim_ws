@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/dynamic_send_target" "TARGETS" "dynamic_send_target" "DESTINATION" "lib/traj_demo")

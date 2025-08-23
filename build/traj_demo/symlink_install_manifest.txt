@@ -1,4 +1,5 @@
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo/lib/traj_demo/plan_once
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo/lib/traj_demo/dynamic_send_target
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo/share/traj_demo/launch/plan_once.launch.py
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo/share/ament_index/resource_index/package_run_dependencies/traj_demo
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/install/traj_demo/share/ament_index/resource_index/parent_prefix_path/traj_demo

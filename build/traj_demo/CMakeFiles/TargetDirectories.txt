@@ -1,6 +1,7 @@
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/uninstall.dir
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/traj_demo_uninstall.dir
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/plan_once.dir
+/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/dynamic_send_target.dir
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/test.dir
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/edit_cache.dir
 /home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/CMakeFiles/rebuild_cache.dir

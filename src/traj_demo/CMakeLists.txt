@@ -17,15 +17,29 @@ find_package(moveit_ros_planning_interface REQUIRED)
 
 # 可执行程序
 add_executable(plan_once src/plan_once.cpp)
-ament_target_dependencies(
-  plan_once
+
+add_executable(dynamic_send_target src/dynamic_send_target.cpp)
+
+
+ament_target_dependencies(plan_once
   rclcpp
   geometry_msgs
   moveit_ros_planning_interface
 )
 
+ament_target_dependencies(dynamic_send_target
+  rclcpp
+  moveit_ros_planning_interface
+  trajectory_msgs
+)
+
+
 # 安装
 install(TARGETS plan_once
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS dynamic_send_target
   DESTINATION lib/${PROJECT_NAME}
 )
 

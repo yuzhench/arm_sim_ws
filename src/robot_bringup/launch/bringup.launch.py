@@ -154,8 +154,8 @@ def launch_setup(context, *args, **kwargs):
     # launch for the demo node 
     demo_node = Node(
         package=demo_pkg,
-        executable='plan_once',
-        name='plan_once',
+        executable='dynamic_send_target',
+        name='dynamic_send_target',
         output='screen',
         parameters= [
             robot_description,

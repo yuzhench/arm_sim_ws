@@ -210,6 +210,43 @@ plan_once/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/plan_once.dir/build.make CMakeFiles/plan_once.dir/build
 .PHONY : plan_once/fast
 
+#=============================================================================
+# Target rules for targets named dynamic_send_target
+
+# Build rule for target.
+dynamic_send_target: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dynamic_send_target
+.PHONY : dynamic_send_target
+
+# fast build rule for target.
+dynamic_send_target/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamic_send_target.dir/build.make CMakeFiles/dynamic_send_target.dir/build
+.PHONY : dynamic_send_target/fast
+
+src/dynamic_send_target.o: src/dynamic_send_target.cpp.o
+.PHONY : src/dynamic_send_target.o
+
+# target to build an object file
+src/dynamic_send_target.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamic_send_target.dir/build.make CMakeFiles/dynamic_send_target.dir/src/dynamic_send_target.cpp.o
+.PHONY : src/dynamic_send_target.cpp.o
+
+src/dynamic_send_target.i: src/dynamic_send_target.cpp.i
+.PHONY : src/dynamic_send_target.i
+
+# target to preprocess a source file
+src/dynamic_send_target.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamic_send_target.dir/build.make CMakeFiles/dynamic_send_target.dir/src/dynamic_send_target.cpp.i
+.PHONY : src/dynamic_send_target.cpp.i
+
+src/dynamic_send_target.s: src/dynamic_send_target.cpp.s
+.PHONY : src/dynamic_send_target.s
+
+# target to generate assembly for a file
+src/dynamic_send_target.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dynamic_send_target.dir/build.make CMakeFiles/dynamic_send_target.dir/src/dynamic_send_target.cpp.s
+.PHONY : src/dynamic_send_target.cpp.s
+
 src/plan_once.o: src/plan_once.cpp.o
 .PHONY : src/plan_once.o
 
@@ -249,7 +286,11 @@ help:
 	@echo "... test"
 	@echo "... traj_demo_uninstall"
 	@echo "... uninstall"
+	@echo "... dynamic_send_target"
 	@echo "... plan_once"
+	@echo "... src/dynamic_send_target.o"
+	@echo "... src/dynamic_send_target.i"
+	@echo "... src/dynamic_send_target.s"
 	@echo "... src/plan_once.o"
 	@echo "... src/plan_once.i"
 	@echo "... src/plan_once.s"

@@ -313,6 +313,9 @@ message(STATUS "Execute custom install script")
 # install("TARGETS" "plan_once" "DESTINATION" "lib/traj_demo")
 include("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install("TARGETS" "dynamic_send_target" "DESTINATION" "lib/traj_demo")
+include("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/build/traj_demo/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(DIRECTORY "launch" "DESTINATION" "share/traj_demo")
 ament_cmake_symlink_install_directory("/home/yuzhench/Desktop/Intership/smart_arm/arm_sim_ws/src/traj_demo" DIRECTORY "launch" "DESTINATION" "share/traj_demo")
 
